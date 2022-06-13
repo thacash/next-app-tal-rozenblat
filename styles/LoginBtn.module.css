@@ -1,0 +1,13 @@
+.picture {
+    border-radius: 50%;
+    margin:auto
+}
+
+.picture:hover{
+    cursor: pointer;
+}
+
+.pic{
+    margin-left: 40px;
+    align-items: center;
+}

@@ -4,6 +4,7 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import { useAuthContext } from '../context/authContext';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -15,6 +16,9 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+
+  const [currentUser, setCurrentUser] = useAuthContext();
+
   return (
     <Layout home>
       <Head>
@@ -23,7 +27,7 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>Hello, I am Tal. I am a fullstack software developer.
           You can contact me at <a href = "https://www.linkedin.com/in/tal-rozenblat-a389ab207/">LinkedIn</a> </p>
-        <p>
+        <p>{currentUser}
           (This is a sample website - you will be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>

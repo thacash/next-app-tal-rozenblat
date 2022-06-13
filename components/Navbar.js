@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
+import LoginBtn from './LoginBtn.js';
 
 const Navbar = () => {
 
@@ -10,6 +11,8 @@ const Navbar = () => {
 
             <Link href = "/"> Home</Link>
             <Link href = "/packages"> Packges</Link>
+            <LoginBtn/>
+
             
 
         </div>
