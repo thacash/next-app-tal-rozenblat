@@ -24,7 +24,7 @@ export default function Home({ allPostsData }) {
         <p>Hello, I'm Tal. I'm a fullstack software developer.
           You can contact me at <a href = "https://www.linkedin.com/in/tal-rozenblat-a389ab207/">LinkedIn</a> </p>
         <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
+          (This is a sample website - you'll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
