@@ -5,8 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Navbar from './Navbar';
 import Footer from './Footer';
-const name = 'Tal Rozenblat';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = 'Cash Manage';
 
 export default function Layout({ children, home }) {
   return (

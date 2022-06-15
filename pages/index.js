@@ -8,6 +8,8 @@ import { useAuthContext } from '../context/authContext';
 import tal from '@talrozen/tal-npm';
 import HomepageHeaderCard from '../components/HomepageHeaderCard';
 import styles from '../styles/Home.module.css';
+import HomePageBackground from '../components/HomePageBackground';
+import HomepageInfoCard from '../components/HomepageInfoCard';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -32,10 +34,20 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className={styles.container}>
+      <HomePageBackground>
 
-        <HomepageHeaderCard></HomepageHeaderCard>
-      </div>
+        {/* <div className={styles.container}> */}
+        <div>
+
+          <HomepageHeaderCard></HomepageHeaderCard>
+        </div>
+
+        <div className={styles.cardsContainer}>
+          <HomepageInfoCard/>
+          <HomepageInfoCard/>
+          <HomepageInfoCard/>
+        </div>
+      </HomePageBackground>
       {/* <section className={utilStyles.headingMd}>
         <p>Hello, I am Tal. I am a fullstack software developer.
           You can contact me at <a href = "https://www.linkedin.com/in/tal-rozenblat-a389ab207/">LinkedIn</a> </p>
