@@ -1,20 +1,30 @@
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
 import LoginBtn from './LoginBtn.js';
+import Image from 'next/image';
+import logo from '../public/images/navbarLogo.png';
 
 const Navbar = () => {
 
 
     return (
+
     <div className={styles.Navbar}>
-        <div className={styles.links}>
+        <div className={styles.container}>
+            <div className={styles.logo}>
 
-            <Link href = "/"> Home</Link>
-            <Link href = "/packages"> Packges</Link>
+              <Image src={logo} width={100} height = {50}></Image>
+            </div>
+            <nav>
+                <ul className={styles.nav_links}>
+                    <li><Link href = "/"> Home</Link></li>
+                    <li><Link href = "/about"> About</Link></li>
+                    <li><Link href = "/packages"> Packges</Link></li>
+                    
+                    
+                </ul>
+            </nav>
             <LoginBtn/>
-
-            
-
         </div>
     </div>
     );

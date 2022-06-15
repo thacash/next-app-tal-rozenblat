@@ -20,9 +20,8 @@ export default function Component() {
     )
   }
   return (
-    <>
-      Not signed in <br />
+    <div className={styles.container}>
       <button onClick={() => signIn()}>Sign in</button>
-    </>
+    </div>
   )
 }

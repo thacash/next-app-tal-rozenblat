@@ -1,0 +1,30 @@
+.card{
+    border: none;
+    font-family: sans-serif;
+}
+
+.h1{
+    color: #60BF81;
+    font-size: 3rem;
+}
+
+.p{
+    color: white;
+    margin-top: 2rem;
+}
+
+.links{
+    color:white;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 3rem;
+}
+
+.links a{
+    color:white;
+    text-decoration: none;
+    padding: 16px 54px;
+    border: 1px white solid;
+    font-size: small;
+    
+}

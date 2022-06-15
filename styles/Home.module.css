@@ -1,5 +1,17 @@
 .container {
-  padding: 0 2rem;
+  background-image: url('../public/images/homebg3.jpg');
+  width: fit-content;
+  height: fit-content;
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+  padding-bottom: 4rem;
+  width: 100vw;
+  height: 70vw;
+  
 }
 
 .main {

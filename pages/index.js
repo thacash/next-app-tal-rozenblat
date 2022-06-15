@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Date from '../components/date';
 import { useAuthContext } from '../context/authContext';
 import tal from '@talrozen/tal-npm';
+import HomepageHeaderCard from '../components/HomepageHeaderCard';
+import styles from '../styles/Home.module.css';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -30,7 +32,11 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <div className={styles.container}>
+
+        <HomepageHeaderCard></HomepageHeaderCard>
+      </div>
+      {/* <section className={utilStyles.headingMd}>
         <p>Hello, I am Tal. I am a fullstack software developer.
           You can contact me at <a href = "https://www.linkedin.com/in/tal-rozenblat-a389ab207/">LinkedIn</a> </p>
         <p>{currentUser}
@@ -54,7 +60,7 @@ export default function Home({ allPostsData }) {
           </li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </Layout>
   );
 }

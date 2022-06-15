@@ -4,6 +4,7 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Navbar from './Navbar';
+import Footer from './Footer';
 const name = 'Tal Rozenblat';
 export const siteTitle = 'Next.js Sample Website';
 
@@ -26,7 +27,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Navbar />
-      <header className={styles.header}>
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
@@ -60,7 +61,7 @@ export default function Layout({ children, home }) {
             </h2>
           </>
         )}
-      </header>
+      </header> */}
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
@@ -69,6 +70,8 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
+
+      <Footer></Footer>
     </div>
   );
 }
