@@ -5,9 +5,11 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 import { useAuthContext } from '../context/authContext';
+import tal from '@talrozen/tal-npm';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+
   return {
     props: {
       allPostsData,
@@ -18,6 +20,10 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
 
   const [currentUser, setCurrentUser] = useAuthContext();
+  const logTal = () => {
+    console.log(tal);
+    
+  }
 
   return (
     <Layout home>
@@ -32,7 +38,7 @@ export default function Home({ allPostsData }) {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-
+      <button onClick={logTal}>console log </button>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>

@@ -8,7 +8,7 @@ export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
     return {
         props: {
-            postData,
+            packageData,
         },
     };
 }
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
     };
 }
 
-export default function Post({ postData }) {
+export default function Post({ packageData }) {
     return (
       <Layout>
         <Head>
