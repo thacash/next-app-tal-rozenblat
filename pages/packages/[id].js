@@ -1,25 +1,25 @@
 import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getAllPackagesIds, getPackagesData } from '../../lib/packages';
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
-// export async function getStaticProps({ params }) {
-//     const postData = await getPostData(params.id);
-//     return {
-//         props: {
-//             packageData,
-//         },
-//     };
-// }
+export async function getStaticProps({ params }) {
+    const postData = await getPackagesData(params.id);
+    return {
+        props: {
+            packageData,
+        },
+    };
+}
 
-// export async function getStaticPaths() {
-//     const paths = getAllPostIds();
-//     return {
-//         paths,
-//         fallback: false,
-//     };
-// }
+export async function getStaticPaths() {
+    const paths = getAllPackagesIds();
+    return {
+        paths,
+        fallback: false,
+    };
+}
 
 // export default function Post({ packageData }) {
 //     return (
