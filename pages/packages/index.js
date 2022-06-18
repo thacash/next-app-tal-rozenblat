@@ -1,11 +1,11 @@
 import Layout from '../../components/layout';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
-import { getPackagesData } from '../../lib/packages'
+import { getPackagesData, getSortedPackagesData } from '../../lib/packages'
 
 
 export async function getStaticProps() {
-  const allPackagesData = getPackagesData();
+  const allPackagesData = getSortedPackagesData();
 
   return {
     props: {
