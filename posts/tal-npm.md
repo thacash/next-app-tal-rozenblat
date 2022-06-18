@@ -1,6 +1,6 @@
 ---
 title: 'tal-npm'
-date: '2022-06-17'
+date: '2020-01-02'
 ---
 
 That's my first try at an npm package!

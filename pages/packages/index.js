@@ -1,34 +1,44 @@
-import Layout from '../../components/layout';
 import Head from 'next/head';
+import Layout, { siteTitle } from '../../components/layout'
 import utilStyles from '../../styles/utils.module.css';
-import { getPackagesData, getSortedPackagesData } from '../../lib/packages';
+import { getSortedPostsData } from '../../lib/posts';
 import Link from 'next/link';
-import Date from '../../components/date.js';
-
-
+import Date from '../../components/date';
+import tal from '@talrozen/tal-npm';
+import HomepageHeaderCard from '../../components/HomepageHeaderCard';
+import styles from '../../styles/Home.module.css';
+import HomePageBackground from '../../components/HomePageBackground';
+import HomepageInfoCard from '../../components/HomepageInfoCard';
 
 export async function getStaticProps() {
-  const allPackagesData = getSortedPackagesData();
+  const allPostsData = getSortedPostsData();
 
   return {
     props: {
-      allPackagesData,
+      allPostsData,
     },
   };
 }
 
-export default function Packages({ allPackagesData }) {
-    return (
-      <Layout>
-        <Head>
-          <title>test</title>
-        </Head>
-        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+export default function Packages({ allPostsData }) {
+
+  
+
+  return (
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <HomePageBackground>
+
+       
+      
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Packages</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>
+            <Link href={`/packages/${id}`}>
               <a>{title}</a>
             </Link>
             <br />
@@ -39,6 +49,8 @@ export default function Packages({ allPackagesData }) {
           ))}
         </ul>
       </section>
-      </Layout>
-    );
-  }
+      </HomePageBackground>
+
+    </Layout>
+  );
+}
