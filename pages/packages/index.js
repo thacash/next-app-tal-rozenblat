@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Date from '../../components/date';
 import tal from '@talrozen/tal-npm';
 import HomepageHeaderCard from '../../components/HomepageHeaderCard';
-import styles from '../../styles/Home.module.css';
+import styles from '../../styles/Packages.module.css';
 import HomePageBackground from '../../components/HomePageBackground';
 import HomepageInfoCard from '../../components/HomepageInfoCard';
 
@@ -34,8 +34,10 @@ export default function Packages({ allPostsData }) {
        
       
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <div className={styles.listContainer}>
         <h2 className={utilStyles.headingLg}>Packages</h2>
-        <ul className={utilStyles.list}>
+        
+        <ul className={styles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
             <Link href={`/packages/${id}`}>
@@ -48,6 +50,7 @@ export default function Packages({ allPostsData }) {
           </li>
           ))}
         </ul>
+        </div>
       </section>
       </HomePageBackground>
 

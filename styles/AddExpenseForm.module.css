@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.card {
+    border: none;
+    font-family: sans-serif;
+    max-width: 60%;
+    max-height: 50%;
+    padding-left: 3rem;
+    padding-top: 1rem;
+}
+
+.h1{
+    color: #223240;
+    font-size: 42px;
+    margin: 0;
+}
+
+
+.form{
+    display:flex;
+    flex-direction: column;
+}
+
+.form input{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.form label{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.form button{
+    padding: 9px 25px;
+    background-color: #60BF81;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1rem;
+
+}
+
+.form button:hover{
+    background-color: #3B8C66;
+}

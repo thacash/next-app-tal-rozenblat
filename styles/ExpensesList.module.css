@@ -1,0 +1,29 @@
+.list{
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px black solid;
+    font-size: small;
+}
+
+.table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.table td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 2rem;
+}

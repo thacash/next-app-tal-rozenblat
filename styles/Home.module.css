@@ -141,6 +141,6 @@
     flex-direction: column;
   }
   .cardsContainer{
-    width: 100%;
+    flex-direction: column;
   }
 }
