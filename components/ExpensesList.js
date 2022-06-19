@@ -28,7 +28,7 @@ export default function ExpensesList(props) {
 
                     //   </li>
 
-                    <tr>
+                    <tr key = {time}>
                         <td>{desc}</td>
                         <td>{`${amount}₪`}</td>
                         <td>{time}</td>

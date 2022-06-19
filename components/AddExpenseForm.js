@@ -87,9 +87,9 @@ export default function AddExpenseForm() {
             <h1 className={styles.h1}>Add expense:</h1>
            
             <form className={styles.form} action="" method="post">
-                <label for="amount">Amount:</label>
+                <label htmlFor="amount">Amount:</label>
                 <input onChange={handleAmountChange} value = {amount} type="number" id="amount" name="amount" required />
-                <label for="desc">Description:</label>
+                <label htmlFor="desc">Description:</label>
                 <input onChange={handleDescChange} value = {desc} type="text" id="desc" name="desc" />
 
                 <small className={utilStyles.lightText}>
