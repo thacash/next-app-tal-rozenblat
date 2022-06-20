@@ -8,7 +8,7 @@ import HomePageBackground from '../../components/HomePageBackground';
 import AddExpenseForm from '../../components/AddExpenseForm';
 
 
-export default function Expenses({ allPostsData }) {
+export default function Expenses() {
 
   
 
@@ -19,11 +19,10 @@ export default function Expenses({ allPostsData }) {
       </Head>
       <HomePageBackground>
 
-       
       
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}> */}
         <AddExpenseForm/>
-      </section>
+      {/* </section> */}
       </HomePageBackground>
 
     </Layout>

@@ -7,34 +7,51 @@ import { useState } from "react";
 
 export default function ExpensesList(props) {
     const { data: session } = useSession()
-    const [key, setKey] = useState(0);
 
     return (
         <div >
             <h1>Expenses:</h1>
+            {/* <div className={styles.table}>
+                <div className={styles.row}>
+                
+                    <div className={styles.cul}>
+                        amount 
+                    </div>
+                    <div className={styles.cul}>
+                        description
+                    </div>
+                    <div className={styles.cul}>
+                        time
+                    </div>
+                </div>
+            </div> */}
+            
             <table className={styles.table}>
+            <tbody>
                 <tr>
                     <th>Description</th>
                     <th>Amount</th>
                     <th>Time</th>
                     
                 </tr>
-                {/* <ul className={styles.list}>
-            <li>Amount      Description     Time</li> */}
-                {props.expenses.length > 0 ? props.expenses.map(({ amount, desc, time }) => (
+                {/* <ul className={styles.list}> */}
+            {/* <li>Amount      Description     Time</li> */}
+                {props.expenses.length > 0 ? props.expenses.map(({ amount, desc, time },index) => (
+                    
                     //     <li className={utilStyles.listItem} key={key}>
 
                     //     Amount: {amount}  Description: {desc} Time = {time}
 
                     //   </li>
 
-                    <tr key = {time}>
+                    <tr key = {index}>
                         <td>{desc}</td>
                         <td>{`${amount}₪`}</td>
                         <td>{time}</td>
                     </tr>
                 )): ''}
                 {/* </ul> */}
+                </tbody>
             </table>
         </div>
     )

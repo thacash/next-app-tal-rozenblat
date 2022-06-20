@@ -79,10 +79,10 @@ export default function Package({ postData, levels, pacakgeContents }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
-          {pacakgeContents.map((item) => {
+          {pacakgeContents.map((item, index) => {
             console.log("item", item);
             return (
-              <div className={utilStyles.card}>
+              <div className={utilStyles.card} key={item.name + index}>
                 <div>Function Name: {item.name}</div>
                 <div>{item.body}</div>
                 <div>{item.length}</div>

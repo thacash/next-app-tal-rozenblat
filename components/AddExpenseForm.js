@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/AddExpenseForm.module.css';
 import utilStyles from '../styles/utils.module.css';
 // import Date from '../components/date';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExpensesList from "./ExpensesList";
 
 
@@ -28,6 +28,9 @@ export default function AddExpenseForm() {
     });
 
 
+    useEffect(() => {
+        
+    }, [expenses])
 
     const handleAmountChange = (e) => {
         setAmount(e.target.value);
@@ -52,8 +55,8 @@ export default function AddExpenseForm() {
         setAmount(0);
         setDesc('');
         getTimeAndDate();
-        setExpenses([...expenses, {amount: amount, desc: desc, time: time}])
-        let newExpenses = calculateTotalExpenses();
+        setExpenses([...expenses, {amount: amount, desc: desc, time: 'time'}])
+        // let newExpenses = calculateTotalExpenses();
         setTotalExpenses(totalExpenses + parseInt(amount));
     }
 
