@@ -6,12 +6,12 @@ import utilStyles from '../../styles/utils.module.css';
 import HomePageBackground from '../../components/HomePageBackground';
 import { useRouter } from "next/router";
 import talNpm from '@talrozen/tal-npm';
-import cashfinancefinance from "@thacash/cash_finance";
+// import cashfinancefinance from "@thacash/cash_finance";
 
 export async function getStaticProps({ params }) {
 
-  console.log(params.id)
-  console.log(cashfinancefinance)
+  // console.log(params.id)
+  // console.log(cashfinancefinance)
   console.log(talNpm)
 
   let pacakgeContents;
@@ -34,6 +34,7 @@ export async function getStaticProps({ params }) {
     });
   }
 
+  // console.log(pacakgeContents);
 
   const postData = await getPostData(params.id);
   const files = getSortedPostsData();
@@ -89,6 +90,10 @@ export default function Package({ postData, levels, pacakgeContents }) {
               </div>
             );
           })}
+          <div>{talNpm.name}</div>
+          <div>{talNpm.length}</div>
+          <br></br>
+          <div>{talNpm.toString()}</div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
       </HomePageBackground>

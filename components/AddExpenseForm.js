@@ -17,9 +17,10 @@ export default function AddExpenseForm() {
     const [time, setTime] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes()<10?'0':''}${current.getMinutes()}:${current.getSeconds()<10?'0':''}${current.getSeconds()}`);
     const [amount, setAmount] = useState(0);
     const [desc, setDesc] = useState('');
+    const [category, setCategory] = useState(0);
     const [expenses, setExpenses] = useState([])
     const [totalExpenses, setTotalExpenses] = useState(0);
-
+    const [options, setOptions] = useState('');
 
     const [formInputs, setFormInputs] = useState({
         amount: 0,
@@ -55,7 +56,7 @@ export default function AddExpenseForm() {
         setAmount(0);
         setDesc('');
         getTimeAndDate();
-        setExpenses([...expenses, {amount: amount, desc: desc, time: 'time'}])
+        setExpenses([...expenses, {amount: amount, desc: desc, time: time}])
         // let newExpenses = calculateTotalExpenses();
         setTotalExpenses(totalExpenses + parseInt(amount));
     }
@@ -84,6 +85,17 @@ export default function AddExpenseForm() {
         return;
     }
     
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value);
+    }
+
+    const addOption = () => {
+        //handle user input regarding option
+        //making option element
+        //spreading options and adding the new element
+        //setting state
+    }
+
 
     return (
         <div className={styles.card}>
@@ -94,6 +106,14 @@ export default function AddExpenseForm() {
                 <input onChange={handleAmountChange} value = {amount} type="number" id="amount" name="amount" required />
                 <label htmlFor="desc">Description:</label>
                 <input onChange={handleDescChange} value = {desc} type="text" id="desc" name="desc" />
+                <select onChange={handleCategoryChange}>
+                    <option value = "food">Food</option>
+                    <option value = "gas">Gas</option>
+                    <option value = "personal">Personal</option>
+                    {options? options : ''}
+
+                </select>
+                <button onClick={addOption}>New Category</button>
 
                 <small className={utilStyles.lightText}>
                     
