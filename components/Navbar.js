@@ -13,13 +13,13 @@ const Navbar = () => {
         <div className={styles.container}>
             <div className={styles.logo}>
 
-              <Image src={logo} width={100} height = {50}></Image>
+              <Image src={logo} width={100} height = {50} alt = ''></Image>
             </div>
             <nav>
                 <ul className={styles.nav_links}>
                     <li><Link href = "/"> Home</Link></li>
                     <li><Link href = "/about"> About</Link></li>
-                    <li><Link href = "/packages"> Packges</Link></li>
+                    <li><Link href = "/packages"> Packages</Link></li>
                     <li><Link href = "/expenses"> Expenses</Link></li>
 
                     

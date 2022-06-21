@@ -12,7 +12,8 @@ export default function Component() {
             {/* {session.user.image} */}
             <Image className = {styles.picture} src = {session.user.image}
             width = {40}
-            height = {40}/>
+            height = {40}
+            alt = ''/>
         </Link>
              <br />
         {/* <button onClick={() => signOut()}>Sign out</button> */}

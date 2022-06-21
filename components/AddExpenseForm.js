@@ -6,6 +6,7 @@ import utilStyles from '../styles/utils.module.css';
 // import Date from '../components/date';
 import { useEffect, useState } from "react";
 import ExpensesList from "./ExpensesList";
+import AddCategoryModal from "./AddCategoryModal";
 
 
 export default function AddExpenseForm() {
@@ -20,7 +21,9 @@ export default function AddExpenseForm() {
     const [category, setCategory] = useState(0);
     const [expenses, setExpenses] = useState([])
     const [totalExpenses, setTotalExpenses] = useState(0);
-    const [options, setOptions] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [modal, setModal] = useState(false);
+
 
     const [formInputs, setFormInputs] = useState({
         amount: 0,
@@ -89,18 +92,27 @@ export default function AddExpenseForm() {
         setCategory(e.target.value);
     }
 
-    const addOption = () => {
+    const addOption = (e) => {
+        e.preventDefault();
+        setModal(true);
         //handle user input regarding option
         //making option element
         //spreading options and adding the new element
         //setting state
     }
-    
 
+
+    const handleModalClose = (e) => {
+        setModal(false);
+    }
 
     return (
         <div className={styles.card}>
             <h1 className={styles.h1}>Add expense:</h1>
+            <div className={modal && styles.modal} onClick = {handleModalClose}>
+
+                <AddCategoryModal show = {modal} categories = {categories} setCategories = {setCategories} handleModalClose = {handleModalClose}></AddCategoryModal>
+            </div>
            
             <form className={styles.form} action="" method="post">
                 <label htmlFor="amount">Amount:</label>
@@ -111,7 +123,7 @@ export default function AddExpenseForm() {
                     <option value = "food">Food</option>
                     <option value = "gas">Gas</option>
                     <option value = "personal">Personal</option>
-                    {options? options : ''}
+                    {categories? categories : ''}
 
                 </select>
                 <button onClick={addOption}>New Category</button>

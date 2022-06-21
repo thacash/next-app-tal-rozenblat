@@ -3,7 +3,8 @@
 
 .card {
     border: none;
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    
     max-width: 60%;
     max-height: 50%;
     padding-left: 3rem;
@@ -36,7 +37,8 @@
     padding: 9px 25px;
     background-color: #60BF81;
     border: none;
-    border-radius: 50px;
+    /* border-radius: 50px; */
+    border-radius: 1rem;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
@@ -46,4 +48,17 @@
 
 .form button:hover{
     background-color: #3B8C66;
+}
+
+
+.modal {
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

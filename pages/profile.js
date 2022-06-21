@@ -27,7 +27,8 @@ export default function Component() {
         <div className={styles.container}>
             <Image className = {styles.picture} src = {session.user.image}
             width = {40}
-            height = {40}/>
+            height = {40}
+            alt = ''/>
             <p> Name: {session.user.name} </p>
             <p> Email: {session.user.email} </p>
           

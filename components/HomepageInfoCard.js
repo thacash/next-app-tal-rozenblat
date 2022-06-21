@@ -13,7 +13,7 @@ export default function HomepageHeaderCard() {
         <p className={styles.p}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor gravida tempus. Nullam suscipit laoreet risus, non euismod elit laoreet eu.</p>
         <div className={styles.links}>
 
-        <Image src = {arrow} width = {40} height= {40}></Image>
+        <Image src = {arrow} width = {40} height= {40} alt = ''></Image>
         </div>
     </div>
   )

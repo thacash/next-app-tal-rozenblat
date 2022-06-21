@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.addCategorymodal{
+    font-family: 'Montserrat', sans-serif;
+    width:250px;
+    margin: auto;
+    /* color: white; */
+    /* width: fit-content; */
+    /* margin-top: 12rem; */
+    background-color: white;
+    border-radius: 1rem;
+    border: rgb(211, 209, 209) 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+
+.button {
+    padding: 9px 25px;
+    background-color: #60BF81;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+.button:hover {
+    background-color: #3B8C66;
+
+}
+
+
+
+
+.addCategorymodal input{
+    /* width: 403px; */
+    height: 50px;
+    background: #EDF2F7;
+    border: none;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    padding-left:10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box; 
+    
+}
+
+
+
+.header{
+    margin:0;
+}
+
+.closeSvg{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-end;
+    width: 100%;
+    padding:6px;
+}
+
+
+
+.closeSvg Image {
+    width:30px;
+    height:auto;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.closeSvg button{
+    width: fit-content;
+    padding: 0;
+    border:none;
+    background-color: white;
+}
+
+.closeSvg button:hover{
+    cursor: pointer;
+    
+}
+
