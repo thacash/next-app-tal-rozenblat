@@ -16,7 +16,7 @@ export default function AddExpenseForm() {
     // const time = `${current.getHours()}:${current.getMinutes()+1}:${current.getSeconds()}`;
 
     const [time, setTime] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes()<10?'0':''}${current.getMinutes()}:${current.getSeconds()<10?'0':''}${current.getSeconds()}`);
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState('');
     const [desc, setDesc] = useState('');
     const [category, setCategory] = useState(0);
     const [expenses, setExpenses] = useState([])
@@ -56,7 +56,7 @@ export default function AddExpenseForm() {
         if(amount <= 0){
             return;
         }
-        setAmount(0);
+        setAmount('');
         setDesc('');
         getTimeAndDate();
         setExpenses([...expenses, {amount: amount, desc: desc, time: time}])
@@ -115,24 +115,37 @@ export default function AddExpenseForm() {
             </div>
            
             <form className={styles.form} action="" method="post">
-                <label htmlFor="amount">Amount:</label>
-                <input onChange={handleAmountChange} value = {amount} type="number" id="amount" name="amount" required />
-                <label htmlFor="desc">Description:</label>
-                <input onChange={handleDescChange} value = {desc} type="text" id="desc" name="desc" />
-                <select onChange={handleCategoryChange}>
-                    <option value = "food">Food</option>
-                    <option value = "gas">Gas</option>
-                    <option value = "personal">Personal</option>
-                    {categories? categories : ''}
+                <div className={styles.inputContainer}>
+                    <div className={styles.inputLabel}>
+                        <label htmlFor="amount">Amount:</label>
+                        <input onChange={handleAmountChange} value = {amount} type="number" id="amount" name="amount" required />
+                    </div>
 
-                </select>
-                <button onClick={addOption}>New Category</button>
+                    <div className={styles.inputLabel}>
+                        <label htmlFor="desc">Description:</label>
+                        <input onChange={handleDescChange} value = {desc} type="text" id="desc" name="desc" />
+                    </div>
+                </div>
+                <div className = {styles.options}>
+                    <select onChange={handleCategoryChange}>
+                        <option selected value = 'null'>Select Category:</option>
+                        <option value = "personal">Personal</option>
+                        <option value = "food">Food</option>
+                        <option value = "gas">Gas</option>
+                        {categories? categories : ''}
+
+                    </select>
+                    <div className={styles.addOptionBtn}>
+                        <button onClick={addOption}>New Category</button>
+                    </div>
+                </div>
 
                 <small className={utilStyles.lightText}>
                     
                 </small>
-
-                <button disabled = {amount <= 0 ? true : false} onClick={handleSubmit} type="submit">Submit</button>
+                <div className={styles.submitBtn}>
+                    <button disabled = {amount <= 0 ? true : false} onClick={handleSubmit} type="submit">Submit</button>
+                </div>
             </form>
 
             <ExpensesList expenses = {expenses} />

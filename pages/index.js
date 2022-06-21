@@ -43,9 +43,9 @@ export default function Home({ allPostsData }) {
         </div>
 
         <div className={styles.cardsContainer}>
-          <HomepageInfoCard/>
-          <HomepageInfoCard/>
-          <HomepageInfoCard/>
+          <HomepageInfoCard title = ''/>
+          <HomepageInfoCard title = 'About us' body = 'Learn more about Cash Manage'/>
+          <HomepageInfoCard title = 'Expenses' body = 'Manage your expenses'/>
         </div>
       </HomePageBackground>
       {/* <section className={utilStyles.headingMd}>

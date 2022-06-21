@@ -47,7 +47,7 @@ export default function AddCategoryModal(props) {
                     <input placeholder='Category' value = {category} onChange = {handleCategoryChange}/>
                 </label>
 
-                    <button className={styles.button} onClick={handleSubmit}>Add</button>
+                    <button disabled = {category.length < 0 ? true : false} className={styles.button} onClick={handleSubmit}>Add</button>
         </div>
     );
 }
