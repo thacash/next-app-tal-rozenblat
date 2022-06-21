@@ -18,11 +18,13 @@ export default function AddExpenseForm() {
     const [time, setTime] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes()<10?'0':''}${current.getMinutes()}:${current.getSeconds()<10?'0':''}${current.getSeconds()}`);
     const [amount, setAmount] = useState('');
     const [desc, setDesc] = useState('');
-    const [category, setCategory] = useState(0);
+    const [category, setCategory] = useState('General');
     const [expenses, setExpenses] = useState([])
     const [totalExpenses, setTotalExpenses] = useState(0);
     const [categories, setCategories] = useState([]);
     const [modal, setModal] = useState(false);
+    const [totalFood, setTotalFood] = useState(0);
+    const [totalGas, setTotalGas] = useState(0);
 
 
     const [formInputs, setFormInputs] = useState({
@@ -33,7 +35,10 @@ export default function AddExpenseForm() {
 
 
     useEffect(() => {
-        
+        const food = calculateTotalFood();
+        const gas = calculateTotalGas();
+        setTotalFood(food);
+        setTotalGas(gas);
     }, [expenses])
 
     const handleAmountChange = (e) => {
@@ -58,8 +63,9 @@ export default function AddExpenseForm() {
         }
         setAmount('');
         setDesc('');
+        // setCategory('')
         getTimeAndDate();
-        setExpenses([...expenses, {amount: amount, desc: desc, time: time}])
+        setExpenses([...expenses, {category: category, amount: amount, desc: desc, time: time}])
         // let newExpenses = calculateTotalExpenses();
         setTotalExpenses(totalExpenses + parseInt(amount));
     }
@@ -88,6 +94,40 @@ export default function AddExpenseForm() {
         return;
     }
     
+    const calculateTotalFood = () => {
+
+        return expenses.reduce(
+            (prevValue, currValue) => {
+                if(currValue.category === 'Food'){
+                    
+                    return parseInt(prevValue) + parseInt(currValue.amount);
+                }
+                else {
+                    return parseInt(prevValue);
+                }
+            },
+            0
+        )
+    } 
+    
+    const calculateTotalGas = () => {
+
+        // if(expenses.length > 0) {
+            return expenses.reduce(
+                (prevValue, currValue) => {
+                    if(currValue.category === 'Gas'){
+                        
+                        return parseInt(prevValue) + parseInt(currValue.amount);
+                    }
+                    else {
+                        return parseInt(prevValue);
+                    }
+                },
+                0
+            )
+        // }
+        return;
+    }
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     }
@@ -129,9 +169,9 @@ export default function AddExpenseForm() {
                 <div className = {styles.options}>
                     <select onChange={handleCategoryChange}>
                         <option selected value = 'null'>Select Category:</option>
-                        <option value = "personal">Personal</option>
-                        <option value = "food">Food</option>
-                        <option value = "gas">Gas</option>
+                        <option value = "Personal">Personal</option>
+                        <option value = "Food">Food</option>
+                        <option value = "Gas">Gas</option>
                         {categories? categories : ''}
 
                     </select>
@@ -150,7 +190,10 @@ export default function AddExpenseForm() {
 
             <ExpensesList expenses = {expenses} />
 
-            <h1>Sum: {`${totalExpenses}₪`}</h1>
+            <h3>Food: {`${totalFood}₪`}</h3>
+            <h3>Gas: {`${totalGas}₪`}</h3>
+            <h2>Sum: {`${totalExpenses}₪`}</h2>
+            
         </div>
     )
 }

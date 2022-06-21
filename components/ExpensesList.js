@@ -29,14 +29,15 @@ export default function ExpensesList(props) {
             <table className={styles.table}>
             <tbody>
                 <tr>
-                    <th>Description</th>
+                    <th>Category</th>
                     <th>Amount</th>
+                    <th>Description</th>
                     <th>Time</th>
                     
                 </tr>
                 {/* <ul className={styles.list}> */}
             {/* <li>Amount      Description     Time</li> */}
-                {props.expenses.length > 0 ? props.expenses.map(({ amount, desc, time },index) => (
+                {props.expenses.length > 0 ? props.expenses.map(({ category, amount, desc, time },index) => (
                     
                     //     <li className={utilStyles.listItem} key={key}>
 
@@ -45,8 +46,9 @@ export default function ExpensesList(props) {
                     //   </li>
 
                     <tr key = {index}>
-                        <td>{desc}</td>
+                        <td>{category}</td>
                         <td>{`${amount}₪`}</td>
+                        <td>{desc}</td>
                         <td>{time}</td>
                     </tr>
                 )): ''}
