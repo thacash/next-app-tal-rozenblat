@@ -7,6 +7,7 @@ import utilStyles from '../styles/utils.module.css';
 import { useEffect, useState } from "react";
 import ExpensesList from "./ExpensesList";
 import AddCategoryModal from "./AddCategoryModal";
+import cashManage from "@talrozen/cash-manage";
 
 
 export default function AddExpenseForm() {
@@ -37,6 +38,7 @@ export default function AddExpenseForm() {
     useEffect(() => {
         const food = calculateTotalFood();
         const gas = calculateTotalGas();
+        console.log(cashManage.calculateTotalFood.toString())
         setTotalFood(food);
         setTotalGas(gas);
     }, [expenses])
@@ -168,7 +170,7 @@ export default function AddExpenseForm() {
                 </div>
                 <div className = {styles.options}>
                     <select onChange={handleCategoryChange}>
-                        <option selected value = 'null'>Select Category:</option>
+                        <option selected value = 'General'>Select Category:</option>
                         <option value = "Personal">Personal</option>
                         <option value = "Food">Food</option>
                         <option value = "Gas">Gas</option>

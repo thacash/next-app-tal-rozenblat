@@ -6,6 +6,8 @@ import utilStyles from '../../styles/utils.module.css';
 import HomePageBackground from '../../components/HomePageBackground';
 import { useRouter } from "next/router";
 import talNpm from '@talrozen/tal-npm';
+import cashNpm from '@talrozen/cash-manage';
+
 // import cashfinancefinance from "@thacash/cash_finance";
 
 export async function getStaticProps({ params }) {
@@ -16,7 +18,6 @@ export async function getStaticProps({ params }) {
 
   let pacakgeContents;
   if (params.id === "tal-npm") {
-    // do it for travel buddy
     pacakgeContents = Object.values(talNpm).map((item) => {
       return {
         body: item.toString(),
@@ -24,8 +25,8 @@ export async function getStaticProps({ params }) {
         length: item.length,
       };
     });
-  } else if (params.id === "cash-finance-npm") {
-    pacakgeContents = Object.values(cashfinancefinance).map((item) => {
+  } else if (params.id === "cash-manage") {
+    pacakgeContents = Object.values(cashNpm).map((item) => {
       return {
         body: item.toString(),
         name: item.name,
@@ -34,7 +35,6 @@ export async function getStaticProps({ params }) {
     });
   }
 
-  // console.log(pacakgeContents);
 
   const postData = await getPostData(params.id);
   const files = getSortedPostsData();
