@@ -29,7 +29,7 @@ export default function Packages({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <HomePageBackground>
+      {/* <HomePageBackground> */}
 
        
       
@@ -52,7 +52,7 @@ export default function Packages({ allPostsData }) {
         </ul>
         </div>
       </section>
-      </HomePageBackground>
+      {/* </HomePageBackground> */}
 
     </Layout>
   );

@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <HomePageBackground>
+      {/* <HomePageBackground> */}
         <div>
           <HomepageHeaderCard />
         </div>
@@ -24,7 +24,7 @@ export default function Home() {
           <HomepageInfoCard title="Packages" body="NPM packages I created" route = '/packages'/>
           <HomepageInfoCard title="Expenses" body="Manage your expenses" route = '/expenses' />
         </div>
-      </HomePageBackground>
+      {/* </HomePageBackground> */}
     </Layout>
   );
 }

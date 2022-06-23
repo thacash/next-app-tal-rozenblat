@@ -51,3 +51,8 @@
 .nav_links li a:hover{
     color:#3B8C66;
 }
+
+.btn{
+    background-color: #223240;
+    border: none;
+}

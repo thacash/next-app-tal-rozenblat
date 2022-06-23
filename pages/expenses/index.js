@@ -9,10 +9,11 @@ export default function Expenses() {
       <Head>
         <title>Expenses</title>
       </Head>
-      <HomePageBackground>
+      {/* <HomePageBackground> */}
         <AddExpenseForm />
 
-      </HomePageBackground>
+
+      {/* </HomePageBackground> */}
     </Layout>
   );
 }

@@ -9,26 +9,32 @@ const Navbar = () => {
 
     return (
 
-    <div className={styles.Navbar}>
-        <div className={styles.container}>
-            <div className={styles.logo}>
+        <div className={styles.Navbar}>
+            <div className={styles.container}>
+                <div className={styles.logo}>
 
-              <Image src={logo} width={100} height = {50} alt = ''></Image>
+                    <Link href={'/'}>
+                        <button className={styles.btn}>
+                            <Image src={logo} width={100} height={50} alt="" />
+                        </button>
+                    </Link>
+                   
+                </div>
+
+                <nav>
+                    <ul className={styles.nav_links}>
+                        <li><Link href="/"> Home</Link></li>
+                        <li><Link href="/about"> About</Link></li>
+                        <li><Link href="/packages"> Packages</Link></li>
+                        <li><Link href="/expenses"> Expenses</Link></li>
+
+
+
+                    </ul>
+                </nav>
+                <LoginBtn />
             </div>
-            <nav>
-                <ul className={styles.nav_links}>
-                    <li><Link href = "/"> Home</Link></li>
-                    <li><Link href = "/about"> About</Link></li>
-                    <li><Link href = "/packages"> Packages</Link></li>
-                    <li><Link href = "/expenses"> Expenses</Link></li>
-
-                    
-                    
-                </ul>
-            </nav>
-            <LoginBtn/>
         </div>
-    </div>
     );
 };
 

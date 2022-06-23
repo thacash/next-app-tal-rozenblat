@@ -1,6 +1,8 @@
 .container {
   /* max-width: 36rem; */
   margin: 0;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .header {
@@ -12,3 +14,8 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.main {
+  min-height: 84vh;
+}
+

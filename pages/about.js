@@ -11,17 +11,17 @@ export default function About() {
       <Head>
         <title>About</title>
       </Head>
-      <HomePageBackground>
+      {/* <HomePageBackground> */}
        <div className={styles.about}>
           <h1 className={styles.h1}>about us</h1>
           <div className={styles.p}>
 
             <p>Cash manage is here to help you manage your finances, by combining your financial information into a simple and easy to understand collection of data.</p>
-            <p>By logging you income and expenses, you can see organized </p>
+            <p>By logging you income and expenses, you can see spending habit.  </p>
 
           </div>
        </div>
-      </HomePageBackground>
+      {/* </HomePageBackground> */}
     </Layout>
   );
 }

@@ -8,6 +8,8 @@ import NavbarSlim from './NavbarSlim';
 import Footer from './Footer';
 export const siteTitle = 'Cash Manage';
 import { useState } from 'react';
+import HomePageBackground from "../components/HomePageBackground";
+
 
 export default function Layout({ children, home }) {
 
@@ -23,7 +25,7 @@ export default function Layout({ children, home }) {
   }
 
 
-  window.addEventListener('scroll', changeScroll);
+  // window.addEventListener('scroll', changeScroll);
 
   return (
     <div className={styles.container}>
@@ -42,18 +44,16 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      {scroll ? <Navbar /> : <NavbarSlim/>}
-     
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      {/* {scroll ? <Navbar /> : <NavbarSlim/>} */}
+      <HomePageBackground>
+
+     <Navbar/>
+      <main className={styles.main}>{children}</main>
+    
 
       <Footer></Footer>
+      </HomePageBackground>
+
     </div>
   );
 }

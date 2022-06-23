@@ -73,7 +73,7 @@ export default function Package({ postData, levels, pacakgeContents }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <HomePageBackground>
+      {/* <HomePageBackground> */}
 
         <article>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
@@ -96,7 +96,7 @@ export default function Package({ postData, levels, pacakgeContents }) {
           <div>{talNpm.toString()}</div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-      </HomePageBackground>
+      {/* </HomePageBackground> */}
 
     </Layout>
   );
