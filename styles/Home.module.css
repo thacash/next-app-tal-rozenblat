@@ -130,7 +130,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   /* width: fit-content; */
-  width: 60%;
+  width: 100%;
 }
 
 
@@ -140,6 +140,12 @@
     width: 100%;
     flex-direction: column;
   }
+  .cardsContainer{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 664px){
   .cardsContainer{
     flex-direction: column;
   }

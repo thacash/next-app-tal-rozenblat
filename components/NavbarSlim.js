@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../styles/Navbar.module.css';
+import styles from '../styles/NavbarSlim.module.css';
 import LoginBtn from './LoginBtn.js';
 import Image from 'next/image';
 import logo from '../public/images/navbarLogo.png';
@@ -26,7 +26,7 @@ const Navbar = () => {
                     
                 </ul>
             </nav>
-            <LoginBtn/>
+            <LoginBtn size = {'small'}/>
         </div>
     </div>
     );

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/LoginBtn.module.css';
 
-export default function Component() {
+export default function Component(props) {
   const { data: session } = useSession()
   if (session) {
     return (

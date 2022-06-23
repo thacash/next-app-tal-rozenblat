@@ -1,0 +1,41 @@
+.about{
+    border: none;
+    font-family: sans-serif;
+    max-height: 50%;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.h1{
+    color: #223240;
+    font-size: 100px;
+    margin: 0;
+}
+
+.p{
+    color: #223240;
+    font-size: larger;
+    margin-top: 2rem;
+    padding-top: 5rem;
+    width: 50%;
+    padding-right: 3rem;
+}
+
+.links{
+    color:white;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 3rem;
+}
+
+.links a{
+    color:white;
+    text-decoration: none;
+    padding: 16px 54px;
+    border: 1px white solid;
+    font-size: small;
+    
+}

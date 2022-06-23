@@ -19,9 +19,10 @@ export default function Home() {
           <HomepageInfoCard
             title="About us"
             body="Learn more about Cash Manage"
+            route = '/about'
           />
-          <HomepageInfoCard title="Packages" body="NPM packages I created" />
-          <HomepageInfoCard title="Expenses" body="Manage your expenses" />
+          <HomepageInfoCard title="Packages" body="NPM packages I created" route = '/packages'/>
+          <HomepageInfoCard title="Expenses" body="Manage your expenses" route = '/expenses' />
         </div>
       </HomePageBackground>
     </Layout>

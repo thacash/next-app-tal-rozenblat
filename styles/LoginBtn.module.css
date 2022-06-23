@@ -15,14 +15,16 @@
 }
 
 .container button{
-    padding: 9px 25px;
+    padding: 5px 10px;
+    color:#223240;
     background-color: #60BF81;
     border: none;
     border-radius: 50px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
-
+    margin-left: 1rem;
 }
 
 .container button:hover{

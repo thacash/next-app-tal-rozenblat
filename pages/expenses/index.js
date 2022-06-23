@@ -11,6 +11,7 @@ export default function Expenses() {
       </Head>
       <HomePageBackground>
         <AddExpenseForm />
+
       </HomePageBackground>
     </Layout>
   );

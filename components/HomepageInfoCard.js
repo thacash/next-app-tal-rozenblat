@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "../styles/HomepageInfoCard.module.css";
 import arrow from "../public/images/arrow.png";
 import { Router } from "next/router";
+import Link from "next/link";
 
 export default function HomepageHeaderCard(props) {
   return (
@@ -17,9 +18,11 @@ export default function HomepageHeaderCard(props) {
           : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor gravida tempus. Nullam suscipit laoreet risus, non euismod elit laoreet eu."}
       </p>
       <div className={styles.links}>
-        <button onClick={() => Router.navigate(props.route)}>
-          <Image src={arrow} width={40} height={40} alt="" />
-        </button>
+        <Link href={props.route}>
+          <button className={styles.btn}>
+            <Image src={arrow} width={40} height={40} alt="" />
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -5,9 +5,9 @@
     top: 0;
     z-index: 1;
     background-color:#223240 ;
-    /* max-height: 3rem; */
-    
-    
+    height: 2rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .scrolled{
@@ -26,6 +26,8 @@
 
 .logo{
     margin-right: auto;
+    position: absolute;
+    left: 5%;
 }
 .container span:hover{
     cursor: pointer;
@@ -50,4 +52,8 @@
 
 .nav_links li a:hover{
     color:#3B8C66;
+}
+
+.nav_links ul{
+    margin:0;
 }

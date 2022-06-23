@@ -38,7 +38,7 @@
     background-color: #60BF81;
     border: none;
     /* border-radius: 50px; */
-    border-radius: 1rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
@@ -60,7 +60,7 @@
     background-color: #60BF81;
     border: none;
     /* border-radius: 50px; */
-    border-radius: 1rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
