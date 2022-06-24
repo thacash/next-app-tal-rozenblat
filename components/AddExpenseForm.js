@@ -4,25 +4,23 @@ import { useEffect, useState } from "react";
 import ExpensesList from "./ExpensesList";
 import AddCategoryModal from "./AddCategoryModal";
 import cashManage from "@talrozen/cash-manage";
+import plusIcon from '../public/images/plus.png'
+import Image from 'next/image'
 
 export default function AddExpenseForm() {
   const current = new Date();
 
   const [time, setTime] = useState(
-    `${current.getDate()}/${
-      current.getMonth() + 1
-    }/${current.getFullYear()}  ${current.getHours()}:${
-      current.getMinutes() < 10 ? "0" : ""
-    }${current.getMinutes()}:${
-      current.getSeconds() < 10 ? "0" : ""
+    `${current.getDate()}/${current.getMonth() + 1
+    }/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes() < 10 ? "0" : ""
+    }${current.getMinutes()}:${current.getSeconds() < 10 ? "0" : ""
     }${current.getSeconds()}`
   );
-  const [amount, setAmount] = useState("");
-  const [desc, setDesc] = useState("");
+
   const [category, setCategory] = useState("General");
   const [expenses, setExpenses] = useState([]);
   const [totalExpenses, setTotalExpenses] = useState(0);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(['Personal', 'Food', 'Gas']);
   const [modal, setModal] = useState(false);
   const [totalFood, setTotalFood] = useState(0);
   const [totalGas, setTotalGas] = useState(0);
@@ -30,13 +28,10 @@ export default function AddExpenseForm() {
   const [formInputs, setFormInputs] = useState({
     amount: 0,
     desc: "",
-    time: `${current.getDate()}/${
-      current.getMonth() + 1
-    }/${current.getFullYear()}  ${current.getHours()}:${
-      current.getMinutes() < 10 ? "0" : ""
-    }${current.getMinutes()}:${
-      current.getSeconds() < 10 ? "0" : ""
-    }${current.getSeconds()}`,
+    time: `${current.getDate()}/${current.getMonth() + 1
+      }/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes() < 10 ? "0" : ""
+      }${current.getMinutes()}:${current.getSeconds() < 10 ? "0" : ""
+      }${current.getSeconds()}`,
   });
 
   useEffect(() => {
@@ -45,13 +40,6 @@ export default function AddExpenseForm() {
     setTotalFood(food);
     setTotalGas(gas);
   }, [expenses]);
-
-  const handleAmountChange = (e) => {
-    setAmount(e.target.value);
-  };
-  const handleDescChange = (e) => {
-    setDesc(e.target.value);
-  };
 
   const handleInputeChange = (e) => {
     setFormInputs({
@@ -62,44 +50,32 @@ export default function AddExpenseForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (amount <= 0) {
+    if (formInputs.amount <= 0) {
       return;
     }
-    setAmount("");
-    setDesc("");
+    
     getTimeAndDate();
     setExpenses([
       ...expenses,
-      { category: category, amount: amount, desc: desc, time: time },
+      { category: category, amount: formInputs.amount, desc: formInputs.desc, time: time },
     ]);
-    setTotalExpenses(totalExpenses + parseInt(amount));
+    setTotalExpenses(totalExpenses + parseInt(formInputs.amount));
   };
 
   const getTimeAndDate = () => {
     const current = new Date();
-    let timeAndDate = `${current.getDate()}/${
-      current.getMonth() + 1
-    }/${current.getFullYear()}  ${current.getHours()}:${
-      current.getMinutes() < 10 ? "0" : ""
-    }${current.getMinutes()}:${
-      current.getSeconds() < 10 ? "0" : ""
-    }${current.getSeconds()}`;
+    let timeAndDate = `${current.getDate()}/${current.getMonth() + 1
+      }/${current.getFullYear()}  ${current.getHours()}:${current.getMinutes() < 10 ? "0" : ""
+      }${current.getMinutes()}:${current.getSeconds() < 10 ? "0" : ""
+      }${current.getSeconds()}`;
 
     setTime(timeAndDate);
     return timeAndDate;
   };
 
-  const calculateTotalExpenses = () => {
-    // if(expenses.length > 0) {
-    return expenses.reduce((prevValue, currValue) => {
-      return parseInt(prevValue) + parseInt(currValue.amount);
-    }, 0);
-    // }
-    return;
-  };
 
   // calculated the total expenses of a given category 
-  const calculateTotalCategory= (category) => {
+  const calculateTotalCategory = (category) => {
     return expenses.reduce((prevValue, currValue) => {
       if (currValue.category === category) {
         return parseInt(prevValue) + parseInt(currValue.amount);
@@ -113,13 +89,9 @@ export default function AddExpenseForm() {
     setCategory(e.target.value);
   };
 
-  const addOption = (e) => {
+  const handleModalOpen = (e) => {
     e.preventDefault();
     setModal(true);
-    //handle user input regarding option
-    //making option element
-    //spreading options and adding the new element
-    //setting state
   };
 
   const handleModalClose = (e) => {
@@ -143,8 +115,7 @@ export default function AddExpenseForm() {
           <div className={styles.inputLabel}>
             <label htmlFor="amount">Amount:</label>
             <input
-              onChange={handleAmountChange}
-              value={amount}
+              onChange={handleInputeChange}
               type="number"
               id="amount"
               name="amount"
@@ -155,8 +126,7 @@ export default function AddExpenseForm() {
           <div className={styles.inputLabel}>
             <label htmlFor="desc">Description:</label>
             <input
-              onChange={handleDescChange}
-              value={desc}
+              onChange={handleInputeChange}
               type="text"
               id="desc"
               name="desc"
@@ -168,20 +138,23 @@ export default function AddExpenseForm() {
             <option selected value="General">
               Select Category:
             </option>
-            <option value="Personal">Personal</option>
-            <option value="Food">Food</option>
-            <option value="Gas">Gas</option>
-            {categories ? categories : ""}
+            {categories.map((item => {
+              return (
+                <option value={item}>{item}</option>
+              )
+            }))}
           </select>
-          <div className={styles.addOptionBtn}>
-            <button onClick={addOption}>New Category</button>
-          </div>
+
+          <button className={styles.addOptionBtn} onClick={handleModalOpen}>
+
+            <Image src={plusIcon} width={40} height={40} alt="" />
+
+          </button>
         </div>
 
-        <small className={utilStyles.lightText}></small>
         <div className={styles.submitBtn}>
           <button
-            disabled={amount <= 0 ? true : false}
+            disabled={formInputs.amount <= 0 ? true : false}
             onClick={handleSubmit}
             type="submit"
           >

@@ -11,8 +11,7 @@ export default function AddCategoryModal(props) {
   };
 
   const handleSubmit = async (event) => {
-    const newCategory = `<option value = ${category.toLocaleLowerCase()}>${category}</option>`;
-    props.setCategories([...props.categories, newCategory]);
+    props.setCategories([...props.categories, category]);
     setCategory("");
     props.handleModalClose();
   };

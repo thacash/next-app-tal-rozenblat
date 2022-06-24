@@ -53,24 +53,13 @@
 .addOptionBtn {
     display: flex;
     justify-content: center;
+    border:none;
+    background: none;
 }
 
-.addOptionBtn button {
-    padding: 9px 25px;
-    background-color: #60BF81;
-    border: none;
-    /* border-radius: 50px; */
-    border-radius: 5px;
+.addOptionBtn:hover{
     cursor: pointer;
-    transition: all 0.3s ease 0s;
-    font-family: 'Montserrat', sans-serif;
-    /* margin-top: 1rem; */
 }
-
-.addOptionBtn button:hover {
-    background-color: #3B8C66;
-}
-
 
 .modal {
     position:fixed;
@@ -133,6 +122,3 @@
 
 }
 
-/* .options .addOptionBtn {
-    align-self: center;
-} */

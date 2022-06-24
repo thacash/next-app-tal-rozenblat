@@ -4,11 +4,8 @@ import utilStyles from '../../styles/utils.module.css';
 import { getSortedPostsData } from '../../lib/posts';
 import Link from 'next/link';
 import Date from '../../components/date';
-import tal from '@talrozen/tal-npm';
-import HomepageHeaderCard from '../../components/HomepageHeaderCard';
 import styles from '../../styles/Packages.module.css';
-import HomePageBackground from '../../components/HomePageBackground';
-import HomepageInfoCard from '../../components/HomepageInfoCard';
+
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -22,38 +19,30 @@ export async function getStaticProps() {
 
 export default function Packages({ allPostsData }) {
 
-  
-
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      {/* <HomePageBackground> */}
-
-       
-      
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-      <div className={styles.listContainer}>
-        <h2 className={utilStyles.headingLg}>Packages</h2>
-        
-        <ul className={styles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-            <Link href={`/packages/${id}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
-          ))}
-        </ul>
+        <div className={styles.listContainer}>
+          <h2 className={utilStyles.headingLg}>Packages</h2>
+
+          <ul className={styles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/packages/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
-      {/* </HomePageBackground> */}
-
     </Layout>
   );
 }
