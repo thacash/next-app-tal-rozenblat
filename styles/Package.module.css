@@ -1,0 +1,56 @@
+
+.packages{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.heading{
+    align-self: center;
+    font-size: 3.5rem;
+    color:#223240;
+    
+}
+
+
+.package{
+    max-width: 80%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+}
+
+.funcName{
+    font-size: larger;
+    margin-bottom: 0.5rem;
+}
+
+.funcLength{
+    /* align-self: center; */
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.funcBody{
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #3B8C66;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+
+.funcBody:hover{
+    border-left-color: #60BF81;
+}

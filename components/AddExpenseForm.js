@@ -42,7 +42,6 @@ export default function AddExpenseForm() {
   useEffect(() => {
     const food = calculateTotalCategory('Food');
     const gas = calculateTotalCategory('Gas');
-    console.log(cashManage.calculateTotalFood.toString());
     setTotalFood(food);
     setTotalGas(gas);
   }, [expenses]);
@@ -59,7 +58,6 @@ export default function AddExpenseForm() {
       ...formInputs,
       [e.target.name]: e.target.value,
     });
-    console.log(formInputs);
   };
 
   const handleSubmit = (e) => {
