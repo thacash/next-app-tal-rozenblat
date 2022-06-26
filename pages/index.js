@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Layout, { siteTitle } from "../components/layout";
 import HomepageHeaderCard from "../components/HomepageHeaderCard";
-import HomePageBackground from "../components/HomePageBackground";
 import HomepageInfoCard from "../components/HomepageInfoCard";
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      {/* <HomePageBackground> */}
         <div>
           <HomepageHeaderCard />
         </div>
@@ -24,7 +22,6 @@ export default function Home() {
           <HomepageInfoCard title="Packages" body="NPM packages I created" route = '/packages'/>
           <HomepageInfoCard title="Expenses" body="Manage your expenses" route = '/expenses' />
         </div>
-      {/* </HomePageBackground> */}
     </Layout>
   );
 }

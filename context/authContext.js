@@ -9,7 +9,7 @@ export function useAuthContext() {
 
 export function AuthContextProvider({ children }) {
 
-  const [currentUser, setCurrentUser] = useState("Tal Rozenblat");
+  const [currentUser, setCurrentUser] = useState({});
   
   return (
     <AuthContext.Provider

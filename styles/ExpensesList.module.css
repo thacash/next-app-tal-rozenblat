@@ -1,3 +1,13 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header{
+    margin-bottom: 1rem;
+}
 .list{
     list-style: none;
     padding: 1rem;
@@ -24,6 +34,14 @@
 .table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-    margin-top: 2rem;
+    /* width: 100%; */
+    margin-top: 0rem;
+    margin-right: 1rem;
 }
+
+/* 
+@media (max-width: 664px){
+    .container{
+      flex-direction: column;
+    }
+  } */

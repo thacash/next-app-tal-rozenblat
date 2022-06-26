@@ -6,8 +6,13 @@ import AddCategoryModal from "./AddCategoryModal";
 import cashManage from "@talrozen/cash-manage";
 import plusIcon from '../public/images/plus.png'
 import Image from 'next/image'
+import { useAuthContext } from "../context/authContext";
+import { addExpense, getExpensesByUserId } from '../lib/expenses';
 
 export default function AddExpenseForm() {
+
+  const [currentUser, setCurrentUser] = useAuthContext();
+
   const current = new Date();
 
   const [time, setTime] = useState(
@@ -19,6 +24,8 @@ export default function AddExpenseForm() {
 
   const [category, setCategory] = useState("General");
   const [expenses, setExpenses] = useState([]);
+  const [newExpenses, setNewExpenses] = useState([]);
+
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [categories, setCategories] = useState(['Personal', 'Food', 'Gas']);
   const [modal, setModal] = useState(false);
@@ -39,6 +46,14 @@ export default function AddExpenseForm() {
     const gas = calculateTotalCategory('Gas');
     setTotalFood(food);
     setTotalGas(gas);
+    // console.log(currentUser.user)
+    if (currentUser.user){
+
+      const newExpensesArray = getExpensesByUserId(currentUser.user._id);
+      setNewExpenses(newExpensesArray);
+      console.log(newExpensesArray); 
+      console.log(currentUser)
+    }
   }, [expenses]);
 
   const handleInputeChange = (e) => {
@@ -48,18 +63,30 @@ export default function AddExpenseForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formInputs.amount <= 0) {
       return;
     }
-    
+
     getTimeAndDate();
     setExpenses([
       ...expenses,
       { category: category, amount: formInputs.amount, desc: formInputs.desc, time: time },
     ]);
     setTotalExpenses(totalExpenses + parseInt(formInputs.amount));
+    console.log(` Amount: ${formInputs.amount}\n Description: ${formInputs.desc}\n Category: ${category}\n userId: ${currentUser.user._id}\n createdAt: ${currentUser.user.createdAt}`);
+
+    const expense = {
+      category: category, 
+      amount: formInputs.amount, 
+      desc: formInputs.desc, 
+      createdAt: currentUser.user.createdAt,
+      userId: currentUser.user._id
+    }
+
+    const newEntry = await addExpense(expense);
+    console.log(newEntry);
   };
 
   const getTimeAndDate = () => {
@@ -109,62 +136,62 @@ export default function AddExpenseForm() {
           handleModalClose={handleModalClose}
         />
       </div>
+      <div className={styles.main}>
+        <form className={styles.form} action="" method="post">
+          <div className={styles.inputContainer}>
+            <div className={styles.inputLabel}>
+              <label htmlFor="amount">Amount:</label>
+              <input
+                onChange={handleInputeChange}
+                type="number"
+                id="amount"
+                name="amount"
+                required
+              />
+            </div>
 
-      <form className={styles.form} action="" method="post">
-        <div className={styles.inputContainer}>
-          <div className={styles.inputLabel}>
-            <label htmlFor="amount">Amount:</label>
-            <input
-              onChange={handleInputeChange}
-              type="number"
-              id="amount"
-              name="amount"
-              required
-            />
+            <div className={styles.inputLabel}>
+              <label htmlFor="desc">Description:</label>
+              <input
+                onChange={handleInputeChange}
+                type="text"
+                id="desc"
+                name="desc"
+              />
+            </div>
+          </div>
+          <div className={styles.options}>
+            <select defaultValue='General' onChange={handleCategoryChange}>
+              <option value="General">
+                Select Category:
+              </option>
+              {categories.map((item => {
+                return (
+                  <option value={item}>{item}</option>
+                )
+              }))}
+            </select>
+
+            <button className={styles.addOptionBtn} onClick={handleModalOpen}>
+
+              <Image src={plusIcon} width={40} height={40} alt="" />
+
+            </button>
           </div>
 
-          <div className={styles.inputLabel}>
-            <label htmlFor="desc">Description:</label>
-            <input
-              onChange={handleInputeChange}
-              type="text"
-              id="desc"
-              name="desc"
-            />
+          <div className={styles.submitBtn}>
+            <button
+              disabled={formInputs.amount <= 0 || !currentUser.user ? true : false}
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Submit
+            </button>
           </div>
-        </div>
-        <div className={styles.options}>
-          <select onChange={handleCategoryChange}>
-            <option selected value="General">
-              Select Category:
-            </option>
-            {categories.map((item => {
-              return (
-                <option value={item}>{item}</option>
-              )
-            }))}
-          </select>
+        </form>
 
-          <button className={styles.addOptionBtn} onClick={handleModalOpen}>
-
-            <Image src={plusIcon} width={40} height={40} alt="" />
-
-          </button>
-        </div>
-
-        <div className={styles.submitBtn}>
-          <button
-            disabled={formInputs.amount <= 0 ? true : false}
-            onClick={handleSubmit}
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-
-      <ExpensesList expenses={expenses} />
-
+        <ExpensesList expenses={expenses} />
+      </div>
       <h3>Food: {`${totalFood}₪`}</h3>
       <h3>Gas: {`${totalGas}₪`}</h3>
       <h2>Sum: {`${totalExpenses}₪`}</h2>

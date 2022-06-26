@@ -18,7 +18,7 @@ const Navbar = () => {
                             <Image src={logo} width={100} height={50} alt="" />
                         </button>
                     </Link>
-                   
+
                 </div>
 
                 <nav>
@@ -27,9 +27,6 @@ const Navbar = () => {
                         <li><Link href="/about"> About</Link></li>
                         <li><Link href="/packages"> Packages</Link></li>
                         <li><Link href="/expenses"> Expenses</Link></li>
-
-
-
                     </ul>
                 </nav>
                 <LoginBtn />

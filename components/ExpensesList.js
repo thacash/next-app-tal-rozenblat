@@ -3,8 +3,8 @@ import styles from '../styles/ExpensesList.module.css';
 export default function ExpensesList(props) {
 
     return (
-        <div >
-            <h1>Expenses:</h1>
+        <div className={styles.container}>
+            <h1 className={styles.header}>Expenses:</h1>
             <table className={styles.table}>
             <tbody>
                 <tr>
