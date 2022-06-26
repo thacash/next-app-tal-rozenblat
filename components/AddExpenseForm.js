@@ -194,7 +194,7 @@ export default function AddExpenseForm() {
               </option>
               {categories.map((item => {
                 return (
-                  <option value={item}>{item}</option>
+                  <option key = {item} value={item}>{item}</option>
                 )
               }))}
             </select>
