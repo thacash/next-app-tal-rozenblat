@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     if (req.method === 'GET') {
         const expenses = await db.collection("expenses").find({ userId: uid }).toArray(function(err,results){
-            res.status(200).json(results);
+            res.status(200).send(results);
 
         });
         return;

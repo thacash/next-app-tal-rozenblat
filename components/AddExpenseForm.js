@@ -46,15 +46,36 @@ export default function AddExpenseForm() {
     const gas = calculateTotalCategory('Gas');
     setTotalFood(food);
     setTotalGas(gas);
-    // console.log(currentUser.user)
+
+    // const getNewExpensesArray = async () => {
+    //   const newExpensesArray = await getExpensesByUserId(currentUser.user._id);
+    //   setNewExpenses(newExpensesArray);
+    // }
+
+    // if (currentUser.user){
+
+      
+    //   getNewExpensesArray();
+
+    // }
+
+    
+  }, [expenses]);
+
+  useEffect(() => {
+    const getNewExpensesArray = async () => {
+      const newExpensesArray = await getExpensesByUserId(currentUser.user._id);
+      setNewExpenses(newExpensesArray);
+    }
+
     if (currentUser.user){
 
-      const newExpensesArray = getExpensesByUserId(currentUser.user._id);
-      setNewExpenses(newExpensesArray);
-      console.log(newExpensesArray); 
-      console.log(currentUser)
+      
+      getNewExpensesArray();
+
     }
-  }, [expenses]);
+
+  },[])
 
   const handleInputeChange = (e) => {
     setFormInputs({
@@ -77,16 +98,22 @@ export default function AddExpenseForm() {
     setTotalExpenses(totalExpenses + parseInt(formInputs.amount));
     console.log(` Amount: ${formInputs.amount}\n Description: ${formInputs.desc}\n Category: ${category}\n userId: ${currentUser.user._id}\n createdAt: ${currentUser.user.createdAt}`);
 
+    const current = new Date();
+      const date =
+        `${current.getFullYear()}-${current.getMonth() + 1
+        }-${current.getDate()}`;
+
+
     const expense = {
       category: category, 
       amount: formInputs.amount, 
       desc: formInputs.desc, 
       createdAt: currentUser.user.createdAt,
-      userId: currentUser.user._id
+      userId: currentUser.user._id,
+      date: date
     }
 
     const newEntry = await addExpense(expense);
-    console.log(newEntry);
   };
 
   const getTimeAndDate = () => {
@@ -190,7 +217,7 @@ export default function AddExpenseForm() {
           </div>
         </form>
 
-        <ExpensesList expenses={expenses} />
+        <ExpensesList expenses={expenses} newExpenses = {newExpenses} />
       </div>
       <h3>Food: {`${totalFood}₪`}</h3>
       <h3>Gas: {`${totalGas}₪`}</h3>

@@ -6,7 +6,7 @@ export default async (req, res) => {
     const db = client.db();
 
     if (req.method === 'GET') {
-        const expenses = await db.collection("expenses").find({ userId: req.body.userId }).toArray(function(err,results){
+        const expenses = await db.collection("expenses").find({}).toArray(function(err,results){
             res.status(200).json(results);
 
         });
@@ -21,7 +21,8 @@ export default async (req, res) => {
             createdAt: req.body.createdAt,
             amount: req.body.amount,
             desc: req.body.desc ? req.body.desc : 'null',
-            category: req.body.category
+            category: req.body.category,
+            date: req.body.date
         });
 
         res.status(201).json(expense);
