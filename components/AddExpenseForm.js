@@ -41,26 +41,16 @@ export default function AddExpenseForm() {
       }${current.getSeconds()}`,
   });
 
+  //handles summerizing totals
   useEffect(() => {
     const food = calculateTotalCategory('Food');
     const gas = calculateTotalCategory('Gas');
+    // const total = calculateTotalExpenses()
     setTotalFood(food);
     setTotalGas(gas);
-
-    // const getNewExpensesArray = async () => {
-    //   const newExpensesArray = await getExpensesByUserId(currentUser.user._id);
-    //   setNewExpenses(newExpensesArray);
-    // }
-
-    // if (currentUser.user){
-
-      
-    //   getNewExpensesArray();
-
-    // }
-
+    // setTotalExpenses(total);
     
-  }, [expenses]);
+  }, [newExpenses]);
 
   useEffect(() => {
     const getNewExpensesArray = async () => {
@@ -75,7 +65,7 @@ export default function AddExpenseForm() {
 
     }
 
-  },[])
+  },[currentUser])
 
   const handleInputeChange = (e) => {
     setFormInputs({
@@ -95,8 +85,7 @@ export default function AddExpenseForm() {
       ...expenses,
       { category: category, amount: formInputs.amount, desc: formInputs.desc, time: time },
     ]);
-    setTotalExpenses(totalExpenses + parseInt(formInputs.amount));
-    console.log(` Amount: ${formInputs.amount}\n Description: ${formInputs.desc}\n Category: ${category}\n userId: ${currentUser.user._id}\n createdAt: ${currentUser.user.createdAt}`);
+    // setTotalExpenses(totalExpenses + parseInt(formInputs.amount));
 
     const current = new Date();
       const date =
@@ -114,6 +103,10 @@ export default function AddExpenseForm() {
     }
 
     const newEntry = await addExpense(expense);
+    setNewExpenses([
+      ...newExpenses,
+      { category: category, amount: formInputs.amount, desc: formInputs.desc, _id: newEntry.insertedId, date: date},
+    ]);
   };
 
   const getTimeAndDate = () => {
@@ -127,10 +120,17 @@ export default function AddExpenseForm() {
     return timeAndDate;
   };
 
+  // const calculateTotalExpenses = () => {
+  //   return newExpenses.reduce((prevValue, currValue) => {
+  //       return parseInt(prevValue) + parseInt(currValue.amount);
+      
+  //   }, 0);
+  // }
+
 
   // calculated the total expenses of a given category 
   const calculateTotalCategory = (category) => {
-    return expenses.reduce((prevValue, currValue) => {
+    return newExpenses.reduce((prevValue, currValue) => {
       if (currValue.category === category) {
         return parseInt(prevValue) + parseInt(currValue.amount);
       } else {

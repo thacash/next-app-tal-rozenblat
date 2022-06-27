@@ -82,7 +82,9 @@ export default function Package({ postData, levels, pacakgeContents }) {
               <div className={styles.funcName}>Function Name: {item.name}</div>
               <div className={styles.funcLength}>Arguments: {item.length}</div>
 
-              <code className={styles.funcBody}>{item.body}</code>
+              {/* <code className={styles.funcBody}>{item.body}</code> */}
+              <textarea readOnly className={styles.funcBody}>{item.body}</textarea>
+
             </div>
           );
         })}
@@ -91,7 +93,8 @@ export default function Package({ postData, levels, pacakgeContents }) {
           <div className={styles.package}>
             <div className={styles.funcName}>Function Name: {talNpm.name}</div>
             <div className={styles.funcLength}>Arguments: {talNpm.length}</div>
-            <code className={styles.funcBody}>{talNpm.toString()}</code>
+            <textarea className={styles.funcBody}>{talNpm.toString()}</textarea>
+            
           </div>}
       </article>
 

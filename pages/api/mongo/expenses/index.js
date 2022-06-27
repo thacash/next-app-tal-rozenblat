@@ -1,4 +1,4 @@
-import clientPromise from "../../../lib/mongodb";
+import clientPromise from "../../../../lib/mongodb";
 
 export default async (req, res) => {
 
@@ -28,4 +28,6 @@ export default async (req, res) => {
         res.status(201).json(expense);
         return;
     }
+
+ 
 };
