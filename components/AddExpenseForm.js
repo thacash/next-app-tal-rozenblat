@@ -33,7 +33,9 @@ export default function AddExpenseForm() {
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [categories, setCategories] = useState(["Personal", "Food", "Gas"]);
   const [modal, setModal] = useState(false);
+
   const [addExpenseModal, setAddExpenseModal] = useState(false);
+  
   const [totalFood, setTotalFood] = useState(0);
   const [totalGas, setTotalGas] = useState(0);
   const [totalCateogryExpenses, setTotalCategoryExpenses] = useState(0);

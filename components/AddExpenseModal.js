@@ -1,13 +1,17 @@
 import styles from "../styles/AddExpenseModal.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useAuthContext } from "../context/authContext";
 import closeSVG from "../public/images/close.svg";
 import doubleLeftIcon from "../public/images/double-left.png";
 import doubleDownIcon from "../public/images/double-Down.png";
 import plusIcon from '../public/images/plus.png'
+import { addExpense } from "../lib/expenses";
+
 
 export default function AddCategoryModal(props) {
   // const [category, setCategory] = useState("");
+  const [currentUser, setCurrentUser] = useAuthContext();
   const current = new Date();
 
   const [formInputs, setFormInputs] = useState({
@@ -24,7 +28,7 @@ export default function AddCategoryModal(props) {
   });
 
   const [category, setCategory] = useState("General");
-  const [addCategory, setAddCategory] = useState("General");
+  const [addCategory, setAddCategory] = useState('');
   const [categories, setCategories] = useState(["Personal", "Food", "Gas"]);
   const [addCategoryField, setAddCategoryField] = useState(false);
 
@@ -122,7 +126,7 @@ export default function AddCategoryModal(props) {
               name="addCategory"
             />
           </label>
-          <button className={styles.addOptionBtn} onClick={handleAddCategory}>
+          <button disabled = {addCategory.length <= 0 ? true : false} className={styles.addOptionBtn} onClick={handleAddCategory}>
               <Image src={plusIcon} width={30} height={30} alt="" />
           </button>
         </div>
