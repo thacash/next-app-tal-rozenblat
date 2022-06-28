@@ -1,5 +1,9 @@
+import Image from 'next/image'
 import styles from '../styles/ExpensesList.module.css';
 import { deleteExpense } from '../lib/expenses';
+import deleteIcon from '../public/images/delete.svg'
+
+
 
 export default function ExpensesList(props) {
 
@@ -20,12 +24,14 @@ export default function ExpensesList(props) {
 
                     {props.newExpenses.length > 0 ? props.newExpenses.map(({ category, amount, desc, _id, date }) => (
 
-                        <tr key={_id} onClick={()=>console.log(_id)}>
+                        <tr key={_id}>
                             <td>{category}</td>
                             <td>{`${amount}₪`}</td>
                             <td>{desc === 'null' ? '' : desc}</td>
                             <td>{date}</td>
-                            <td><button onClick={() => deleteExpense(_id)}></button></td>
+                            <td><button className={styles.deleteBtn} onClick={() => props.handleDeleteExpense(_id)}>
+                                <Image src = {deleteIcon} width ={40} height ={40} alt = ""></Image>    
+                            </button></td>
                         </tr>
                     )) : ''}
                 </tbody>

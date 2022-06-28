@@ -45,3 +45,14 @@
       flex-direction: column;
     }
   } */
+
+.deleteBtn{
+    display: flex;
+    justify-content: center;
+    border:none;
+    background: none;
+}
+
+.deleteBtn:hover{
+    cursor: pointer;
+}

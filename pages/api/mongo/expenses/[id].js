@@ -1,5 +1,5 @@
 import clientPromise from "../../../../lib/mongodb";
-
+import { ObjectId } from "bson";
 
 export default async (req, res) => {
 
@@ -8,7 +8,7 @@ export default async (req, res) => {
     const { id } = req.query;
 
     if (req.method === 'DELETE') {
-        const expense = await db.collection("expenses").deleteOne({_id: id});
+        const expense = await db.collection("expenses").deleteOne({_id: ObjectId(id)});
         if(expense){
             res.status(200).json(expense);
         }
