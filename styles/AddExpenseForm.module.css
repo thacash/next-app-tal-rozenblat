@@ -1,51 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 .main{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     justify-content: space-evenly;
+    width: 100%;
 }
-
-@media (max-width: 664px){
-    .main{
-      flex-direction: column;
-    }
-    
-  }
 
 .card {
     border: none;
     font-family: 'Montserrat', sans-serif;
-    
-    /* max-width: 60%; */
+    max-width: 70%;
     max-height: 50%;
     padding-left: 3rem;
     padding-top: 1rem;
+    margin: 0 auto;
 }
 
-.h1{
-    color: #223240;
-    font-size: 42px;
-    margin: 0;
-}
-
-
-.form{
-    display:flex;
-    flex-direction: column;
-}
-
-.form input{
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-.form label{
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-.submitBtn button{
+.btn{
     padding: 9px 25px;
     background-color: #60BF81;
     border: none;
@@ -55,22 +25,12 @@
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
     margin-top: 1rem;
-
+    width: 50%;
+    align-self: center;
 }
 
-.submitBtn button:hover{
+.btn:hover{
     background-color: #3B8C66;
-}
-
-.addOptionBtn {
-    display: flex;
-    justify-content: center;
-    border:none;
-    background: none;
-}
-
-.addOptionBtn:hover{
-    cursor: pointer;
 }
 
 .modal {
@@ -93,44 +53,33 @@
     width: 70%;
 }
 
-.options select {
+.select {
     width: 180px;
-    height: 1.5rem;
     align-self: center;
-
-    height: 50px;
+    height: 35px;
     background: #EDF2F7;
     border: none;
     border-radius: 10px;
-    margin: 0.5rem 0;
+    margin: 0.5rem 1rem;
     padding-left:10px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box; 
 }
 
-
-.inputContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-}
-
-.inputLabel{
+.notLoggedIn{
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 }
 
-.inputLabel input {
-    height: 50px;
-    background: #EDF2F7;
-    border: none;
-    border-radius: 10px;
-    margin: 0.5rem 0;
-    padding-left:10px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box; 
-
+.notLoggedIn h3{
+    margin-bottom: 4rem;
+    min-width: 515px;
+    width: fit-content;
+    align-self: center;
 }
-

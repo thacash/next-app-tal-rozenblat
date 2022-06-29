@@ -19,14 +19,43 @@
     color:#223240;
     background-color: #60BF81;
     border: none;
-    border-radius: 50px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
     margin-left: 1rem;
+    font-weight: bold;
+
 }
 
 .container button:hover{
     background-color: #3B8C66;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.big button {
+    padding: 20px 60px;
+    color:#223240;
+    background-color: #60BF81;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.big button:hover {
+    background-color: #3B8C66;
+}
+
+.big {
+    display: flex;
+    justify-content: center;
 }

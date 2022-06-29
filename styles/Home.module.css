@@ -131,6 +131,7 @@
   flex-wrap: wrap;
   /* width: fit-content; */
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 

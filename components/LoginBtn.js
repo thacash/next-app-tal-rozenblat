@@ -53,6 +53,14 @@ export default function Component(props) {
       </div>
     )
   }
+  
+  else if (props.big){
+    return (
+      <div className={styles.big}>
+        <button onClick={() => signIn()}>Sign in</button>
+      </div>
+    ) 
+  }
   return (
     <div className={styles.container}>
       <button onClick={() => signIn()}>Sign in</button>
