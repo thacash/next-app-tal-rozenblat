@@ -91,7 +91,7 @@ export default function AddExpenseForm() {
   if(!currentUser.user){
     return (
       <div className={styles.notLoggedIn}>
-        <h3>It seems like your'e not signed in yet, sign in and start managing your expenses.</h3>
+        <h3>It seems like your&apos;e not signed in yet, sign in and start managing your expenses.</h3>
         <LoginBtn big = {true}/>
       </div>
     )

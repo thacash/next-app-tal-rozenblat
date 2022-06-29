@@ -6,7 +6,7 @@ import { addCategory } from '../lib/categories';
 import styles from "../styles/AddExpenseModal.module.css";
 import closeSVG from "../public/images/close.svg";
 import doubleLeftIcon from "../public/images/double-left.png";
-import doubleDownIcon from "../public/images/double-Down.png";
+import doubleDownIcon from "../public/images/double-down.png";
 import plusIcon from '../public/images/plus.png'
 
 
