@@ -116,7 +116,9 @@ export default function AddExpenseForm() {
           handleDeleteExpense={handleDeleteExpense}
         />
 
-        <button disabled = {!currentUser.user ? true : false} className={styles.btn} onClick={handleAddExpenseModalOpen}>
+        {/* <button disabled = {!currentUser.user ? true : false} className={styles.btn} onClick={handleAddExpenseModalOpen}> */}
+        <button className={styles.btn} onClick={handleAddExpenseModalOpen}>
+
           Add Expense
         </button>
         <select className={styles.select} name='category' defaultValue="General" onChange={handleCategoryToSumChange}>
