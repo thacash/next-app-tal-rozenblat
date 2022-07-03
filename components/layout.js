@@ -7,23 +7,31 @@ import Navbar from './Navbar';
 import NavbarSlim from './NavbarSlim';
 import Footer from './Footer';
 export const siteTitle = 'Cash Manage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HomePageBackground from "../components/HomePageBackground";
 
 
 export default function Layout({ children, home }) {
 
-  const [scroll, setScroll] = useState(false);
-  const changeScroll = () => {
-      if(window.scrollY <= 80){
-          setScroll(true);
-      }
+  // const [scroll, setScroll] = useState(false);
+  // const changeScroll = (e) => {
+  //   console.log(e);
+      // if(window.scrollY <= 80){
+      //     // setScroll(true);
+      //     return true;
+      // }
 
-      else{
-          setScroll(false);
-      }
-  }
+      // else{
+      //     // setScroll(false);
+      //     return false;
+      // }
+  // }
 
+  // useEffect(() => {
+  //   if (window){
+  //     console.log(window);
+  //   }
+  // }, [window])
 
   // window.addEventListener('scroll', changeScroll);
 

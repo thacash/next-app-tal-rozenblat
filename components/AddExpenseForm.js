@@ -88,14 +88,14 @@ export default function AddExpenseForm() {
   };
 
 
-  // if(!currentUser.user){
-  //   return (
-  //     <div className={styles.notLoggedIn}>
-  //       <h3>It seems like your&apos;e not signed in yet, sign in and start managing your expenses.</h3>
-  //       <LoginBtn big = {true}/>
-  //     </div>
-  //   )
-  // }
+  if(!currentUser.user){
+    return (
+      <div className={styles.notLoggedIn}>
+        <h3>It seems like your&apos;e not signed in yet, sign in and start managing your expenses.</h3>
+        <LoginBtn big = {true}/>
+      </div>
+    )
+  }
   return (
     <div className={styles.card}>
 
@@ -116,8 +116,8 @@ export default function AddExpenseForm() {
           handleDeleteExpense={handleDeleteExpense}
         />
 
-        {/* <button disabled = {!currentUser.user ? true : false} className={styles.btn} onClick={handleAddExpenseModalOpen}> */}
-        <button className={styles.btn} onClick={handleAddExpenseModalOpen}>
+        <button disabled = {!currentUser.user ? true : false} className={styles.btn} onClick={handleAddExpenseModalOpen}>
+        {/* <button className={styles.btn} onClick={handleAddExpenseModalOpen}> */}
 
           Add Expense
         </button>

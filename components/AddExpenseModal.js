@@ -167,8 +167,8 @@ export default function AddCategoryModal(props) {
         </div>
       )}
       <button
-        disabled={formInputs.amount.length < 0 ? true : false}
-        // disabled={formInputs.amount.length < 0 || !currentUser.user ? true : false}
+        // disabled={formInputs.amount.length < 0 ? true : false}
+        disabled={formInputs.amount.length < 0 || !currentUser.user ? true : false}
 
         className={styles.button}
         onClick={handleSubmit}
