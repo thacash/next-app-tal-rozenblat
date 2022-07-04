@@ -3,6 +3,7 @@ import styles from '../styles/Navbar.module.css';
 import LoginBtn from './LoginBtn.js';
 import Image from 'next/image';
 import logo from '../public/images/navbarLogo.png';
+import menuIcon from '../public/images/menuIcon.svg';
 
 
 const Navbar = () => {
@@ -28,9 +29,27 @@ const Navbar = () => {
                         <li><Link href="/packages"> Packages</Link></li>
                         <li><Link href="/expenses"> Expenses</Link></li>
                         <li><Link href="/documentation"> Documentation</Link></li>
+
                     </ul>
+
                 </nav>
-                <LoginBtn />
+                <div className={styles.mobileMenu}>
+
+                    <LoginBtn />
+                    
+                    <div className={styles.mobileLinks}>
+                        <Link href="/"> Home</Link>
+                        <Link href="/about"> About</Link>
+                        <Link href="/packages"> Packages</Link>
+                        <Link href="/expenses"> Expenses</Link>
+                        <Link href="/documentation"> Documentation</Link>
+                    </div>
+                    <button className={styles.menuBtn}>
+                        <Image src={menuIcon} width={24} height={24} alt="menu" />
+                    </button>
+                    
+                </div>
+               
             </div>
         </div>
     );
