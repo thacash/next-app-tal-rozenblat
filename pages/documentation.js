@@ -22,6 +22,7 @@ export default function Documentation( { expensesData } ) {
     useEffect(() => {
         console.log(expensesData);
     },[])
+    
   return (
     <Layout>
       <Head>

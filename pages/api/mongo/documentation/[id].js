@@ -16,8 +16,9 @@ export default async (req, res) => {
     // }
 
     if (req.method === 'GET') {
-        const example = await db.collection("examples").find({type: id}).toArray();
-        res.status(200).json(example);
+        const example = await db.collection("examples").find({type: id});
+        const exampleArray = await example.toArray();
+        res.status(200).json(exampleArray);
         return;
     }
     //finish deletion process
