@@ -31,8 +31,22 @@ const NavbarSlim = () => {
               <div className={styles.bar2}></div>
               <div className={styles.bar3}></div>
             </button>
-            {/* <LoginBtn size={"small"} /> */}
           </span>
+
+          <nav className = {styles.webNav}>
+            
+                    <ul className={styles.nav_links}>
+                        <li><Link href="/"> Home</Link></li>
+                        <li><Link href="/about"> About</Link></li>
+                        <li><Link href="/fire"> Fire</Link></li>
+                        <li><Link href="/packages"> Packages</Link></li>
+                        <li><Link href="/expenses"> Expenses</Link></li>
+                        <li><Link href="/documentation"> Documentation</Link></li>
+
+                        <li><LoginBtn /></li>
+                    </ul>
+
+                </nav>
         </div>
       </header>
       <MobileLinks open = {mobileNavOpen}/>

@@ -10,18 +10,18 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-        <div>
-          <HomepageHeaderCard />
-        </div>
-        <div className={styles.cardsContainer}>
-          <HomepageInfoCard
-            title="About us"
-            body="Learn more about Cash Manage"
-            route = '/about'
-          />
-          <HomepageInfoCard title="Packages" body="NPM packages I created" route = '/packages'/>
-          <HomepageInfoCard title="Expenses" body="Manage your expenses" route = '/expenses' />
-        </div>
+      <div>
+        <HomepageHeaderCard />
+      </div>
+      <div className={styles.cardsContainer}>
+        <HomepageInfoCard
+          title="About us"
+          body="Learn more about Cash Manage"
+          route='/about'
+        />
+        <HomepageInfoCard title="Packages" body="NPM packages I created" route='/packages' />
+        <HomepageInfoCard title="Expenses" body="Manage your expenses" route='/expenses' />
+      </div>
     </Layout>
   );
 }

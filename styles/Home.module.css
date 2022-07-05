@@ -136,18 +136,16 @@
 
 
 
-@media (max-width: 600px) {
+@media (min-width: 640px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-  .cardsContainer{
+  /* .cardsContainer{
     flex-direction: column;
-  }
+  } */
 }
 
-@media (max-width: 664px){
-  .cardsContainer{
-    flex-direction: column;
-  }
+@media (min-width: 768px){
+ 
 }

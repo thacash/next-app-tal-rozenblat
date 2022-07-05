@@ -1,5 +1,5 @@
 .card{
-    width: 260px;
+    width: 90%;
     height: fit-content;
     min-height: 13rem;
     border: none;
@@ -19,11 +19,6 @@
     transform: translateY(-5px);
 }
 
-@media (max-width: 900px){
-    .card{
-        width: 180px;
-    }
-  }
 
 .h1{
     color: #60BF81;
@@ -56,3 +51,17 @@
     cursor: pointer;
 }
 
+
+@media (min-width: 640px){
+    .card{
+
+        width: 260px;
+    }
+
+}
+
+/* @media (max-width: 900px){
+    .card{
+        width: 180px;
+    }
+  } */

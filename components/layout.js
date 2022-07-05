@@ -55,8 +55,8 @@ export default function Layout({ children, home }) {
       {/* {scroll ? <Navbar /> : <NavbarSlim/>} */}
       <HomePageBackground>
 
-     <Navbar/>
-     {/* <NavbarSlim/> */}
+     {/* <Navbar/> */}
+     <NavbarSlim/>
       <main className={styles.main}>{children}</main>
     
 

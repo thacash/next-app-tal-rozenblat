@@ -37,15 +37,15 @@ const Navbar = () => {
                         <li><Link href="/packages"> Packages</Link></li>
                         <li><Link href="/expenses"> Expenses</Link></li>
                         <li><Link href="/documentation"> Documentation</Link></li>
-                        
-<li><LoginBtn /></li>
+
+                        <li><LoginBtn /></li>
                     </ul>
-                    
+
                 </nav>
                 <div className={styles.mobileMenu}>
 
-                    
-                    
+
+
                     <div className={open ? styles.mobileLinks : styles.mobileLinksClose}>
                         <Link href="/"> Home</Link>
                         <Link href="/about"> About</Link>
@@ -55,16 +55,16 @@ const Navbar = () => {
                         <Link href="/documentation"> Documentation</Link>
                         <LoginBtn />
                     </div>
-                    <button className={open ? styles.menuBtn : styles.menuBtnClose} onClick = {handleOpenMobile}>
+                    <button className={open ? styles.menuBtn : styles.menuBtnClose} onClick={handleOpenMobile}>
                         {/* <Image src={menuIcon} width={24} height={24} alt="menu" /> */}
-                        <div className = {styles.bar1}></div>
-                        <div className = {styles.bar2}></div>
-                        <div className = {styles.bar3}></div>
+                        <div className={styles.bar1}></div>
+                        <div className={styles.bar2}></div>
+                        <div className={styles.bar3}></div>
 
                     </button>
-                    
+
                 </div>
-               
+
             </div>
         </div>
     );

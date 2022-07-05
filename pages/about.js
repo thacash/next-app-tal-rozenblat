@@ -17,7 +17,7 @@ export default function About() {
           <div className={styles.p}>
 
             <p>Cash manage is here to help you manage your finances, by combining your financial information into a simple and easy to understand collection of data.</p>
-            <p>By logging you income and expenses, you can see spending habit.  </p>
+            <p>By logging your income and expenses, you can see your spending habits, with that knowledge, you can make informed decisions regarding your spendings.  </p>
 
           </div>
        </div>
