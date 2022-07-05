@@ -56,6 +56,7 @@ export default function Layout({ children, home }) {
       <HomePageBackground>
 
      <Navbar/>
+     {/* <NavbarSlim/> */}
       <main className={styles.main}>{children}</main>
     
 

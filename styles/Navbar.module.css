@@ -63,13 +63,21 @@
     display:flex;
     flex-direction: column-reverse;
 }
-.menuBtn {
-    background-color: #223240;
+
+
+.mobileLinks{
+    display:flex;
+    height: 100vh;
+    z-index: 3;
+    flex-direction: column;
+    justify-content: center;
     border: none;
-    float: right;
-
+    padding: 0;
+    align-items: center;
 }
-
+.mobileLinksClose{
+    display:none;
+}
 .mobileLinks a{
     transition: all 0.3s ease 0s;
     color: #60BF81;
@@ -80,6 +88,73 @@
 
 .mobileLinks:hover{
     color: #3B8C66;
+}
+
+
+.menuBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    right: 1.5rem;
+    top:20px;
+}
+
+.menuBtn:hover {
+    outline: none;
+}
+
+.menuBtnClose{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    right: 1.5rem;
+    top:20px;
+}
+
+
+.bar1, .bar2, .bar3{
+    width: 1.5rem;
+    height: 0.25rem;
+    background-color: #223240;
+    background-color: #60BF81;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+.bar1{
+    transform: rotate(0);
+}
+
+.bar2{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.bar3{
+    transform: rotate(0);
+}
+.menuBtn .bar1{
+    transform: rotate(45deg);
+}
+
+.menuBtn .bar2{
+    opacity: 0;
+    transform: translateX(20px);
+}
+.menuBtn .bar3{
+    transform: rotate(-45deg);
 }
 
 @media (min-width: 600px) {
@@ -95,5 +170,9 @@
 
     .mobileLinks {
         display: none;
+    }
+
+    .menuBtn, .menuBtnClose {
+        display:none;
     }
 }
