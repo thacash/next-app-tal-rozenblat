@@ -50,7 +50,6 @@ export default function Documentation( { expensesData } ) {
                     <tr>
                         <th>Category</th>
                         <th>Amount</th>
-                        <th>Description</th>
                         <th>Date</th>
 
                     </tr>
@@ -60,7 +59,6 @@ export default function Documentation( { expensesData } ) {
                         <tr key={_id}>
                             <td>{category}</td>
                             <td>{`${amount}₪`}</td>
-                            <td>{desc === 'null' ? '' : desc}</td>
                             <td>{date}</td>
                             <td><button className={styles.deleteBtn}>
                                 <Image src = {deleteIcon} width ={40} height ={40} alt = ""></Image>    

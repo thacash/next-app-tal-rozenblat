@@ -70,7 +70,7 @@ export default function Package({ postData, levels, pacakgeContents }) {
 
       <article className={styles.packages}>
         <h1 className={styles.heading}>{postData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className ={styles.content} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
