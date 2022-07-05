@@ -12,22 +12,22 @@ import { server } from '../config/index.js'
 
 
 
-export async function getStaticProps() {
-    // const expensesData = await getExamples('expenses');
-    const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
+// export async function getStaticProps() {
+//     // const expensesData = await getExamples('expenses');
+//     const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
 
 
-    return {
-      props: {
-        expensesData,
-      },
-    };
-  }
-export default function Documentation( { expensesData } ) {
+//     return {
+//       props: {
+//         expensesData,
+//       },
+//     };
+//   }
+export default function Documentation(  ) {
 
-    useEffect(() => {
-        console.log(expensesData);
-    },[])
+    // useEffect(() => {
+    //     console.log(expensesData);
+    // },[])
 
   return (
     <Layout>
@@ -45,7 +45,7 @@ export default function Documentation( { expensesData } ) {
             <h4 className = {styles.h4}>
                 Adding and deleteing expenses:
             </h4>
-            <table className={styles.table}>
+            {/* <table className={styles.table}>
                 <tbody>
                     <tr>
                         <th>Category</th>
@@ -68,7 +68,7 @@ export default function Documentation( { expensesData } ) {
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </table> */}
         </div>
         <div className={styles.p}>
             
