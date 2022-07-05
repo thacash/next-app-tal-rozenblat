@@ -9,12 +9,21 @@
 
 .heading{
     align-self: center;
-    font-size: 3.5rem;
+    font-size: 2rem;
     color:#223240;
-    
+    margin: 1rem 0;
 }
 
+.content{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
 
+.content p{
+    margin-top: 0;
+}
 .package{
     max-width: 80%;
     display: flex;  
@@ -52,7 +61,7 @@
     outline:none;
     resize: none;
     min-height: 200px;
-    min-width: 650px;
+    min-width: 300px;
     width: fit-content;
 
 }
@@ -60,4 +69,22 @@
 
 .funcBody:hover{
     border-left-color: #60BF81;
+}
+
+@media (min-width: 640px){
+    .funcBody{
+        min-width: 400px;
+        width: 70%;
+    }
+
+    .heading{
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 768px){
+    .funcBody{
+        min-width: 650px;
+
+    }
 }

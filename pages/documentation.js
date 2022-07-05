@@ -12,18 +12,18 @@ import { server } from '../config/index.js'
 
 
 
-// export async function getStaticProps() {
-//     // const expensesData = await getExamples('expenses');
-//     const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
+export async function getStaticProps() {
+    // const expensesData = await getExamples('expenses');
+    const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
 
 
-//     return {
-//       props: {
-//         expensesData,
-//       },
-//     };
-//   }
-export default function Documentation(  ) {
+    return {
+      props: {
+        expensesData,
+      },
+    };
+  }
+export default function Documentation( { expensesData } ) {
 
     // useEffect(() => {
     //     console.log(expensesData);
@@ -45,12 +45,11 @@ export default function Documentation(  ) {
             <h4 className = {styles.h4}>
                 Adding and deleteing expenses:
             </h4>
-            {/* <table className={styles.table}>
+            <table className={styles.table}>
                 <tbody>
                     <tr>
                         <th>Category</th>
                         <th>Amount</th>
-                        <th>Description</th>
                         <th>Date</th>
 
                     </tr>
@@ -60,7 +59,6 @@ export default function Documentation(  ) {
                         <tr key={_id}>
                             <td>{category}</td>
                             <td>{`${amount}₪`}</td>
-                            <td>{desc === 'null' ? '' : desc}</td>
                             <td>{date}</td>
                             <td><button className={styles.deleteBtn}>
                                 <Image src = {deleteIcon} width ={40} height ={40} alt = ""></Image>    
@@ -68,7 +66,7 @@ export default function Documentation(  ) {
                         </tr>
                     ))}
                 </tbody>
-            </table> */}
+            </table>
         </div>
         <div className={styles.p}>
             
