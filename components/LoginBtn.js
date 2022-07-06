@@ -33,6 +33,14 @@ export default function Component(props) {
   }, [session]);
 
 
+  const handleSignout = () => {
+
+
+    signOut({
+      callbackUrl: `${window.location.origin}`
+    });
+
+  }
   // useEffect(() => {
   //   if (userProfile) {
   //     console.log(userProfile);
@@ -40,17 +48,25 @@ export default function Component(props) {
   //   }
   // }, [userProfile]);
 
-  if (session) {
+  // if (session) {
+  //   return (
+  //     <div className={styles.pic}>
+  //       <Link href = '/profile'>
+  //           <Image className = {styles.picture} src = {session.user.image}
+  //           width = {40}
+  //           height = {40}
+  //           alt = ''/>
+  //       </Link>
+  //            <br />
+  //     </div>
+  //   )
+  // }
+
+  if(session){
     return (
-      <div className={styles.pic}>
-        <Link href = '/profile'>
-            <Image className = {styles.picture} src = {session.user.image}
-            width = {40}
-            height = {40}
-            alt = ''/>
-        </Link>
-             <br />
-      </div>
+      <div className={styles.container}>
+      <button onClick={handleSignout}>Sign out</button>
+    </div>
     )
   }
   

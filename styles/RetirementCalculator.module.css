@@ -1,6 +1,95 @@
-.retirementCalculator{
+.section{
     display: block;
     width: 100%;
     padding: 5px;
-    background-color:linen;
+    padding: 2rem 2rem;
+    background:none;
+    margin: 0 auto;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+.inputDiv input {
+    width: 5rem;
+    padding: 1rem;
+    margin-top: 10px;
+    text-align: right;
+    border: none;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box; 
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+.inputDiv input::-webkit-outer-spin-button,
+.inputDiv input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputDiv input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.inputDiv input:focus{
+    outline: none;
+}
+
+.inputDiv label{
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+    padding: 5px;
+}
+
+.form button {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 3rem auto 1rem auto;
+    border: none;
+    border-radius: 5px;
+    color:#223240;
+    background-color: #60BF81;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.form button:hover{
+    background-color: #3B8C66;
+
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.result{
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text{
+    text-align: center;
+    font-size: large;
+
 }

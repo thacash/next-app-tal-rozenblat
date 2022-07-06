@@ -13,32 +13,10 @@ import HomePageBackground from "../components/HomePageBackground";
 
 export default function Layout({ children, home }) {
 
-  // const [scroll, setScroll] = useState(false);
-  // const changeScroll = (e) => {
-  //   console.log(e);
-      // if(window.scrollY <= 80){
-      //     // setScroll(true);
-      //     return true;
-      // }
-
-      // else{
-      //     // setScroll(false);
-      //     return false;
-      // }
-  // }
-
-  // useEffect(() => {
-  //   if (window){
-  //     console.log(window);
-  //   }
-  // }, [window])
-
-  // window.addEventListener('scroll', changeScroll);
-
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -52,15 +30,10 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      {/* {scroll ? <Navbar /> : <NavbarSlim/>} */}
       <HomePageBackground>
-
-     {/* <Navbar/> */}
-     <NavbarSlim/>
-      <main className={styles.main}>{children}</main>
-    
-
-      <Footer></Footer>
+        <NavbarSlim />
+        <main className={styles.main}>{children}</main>
+        <Footer></Footer>
       </HomePageBackground>
 
     </div>

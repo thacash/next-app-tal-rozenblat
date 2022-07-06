@@ -15,7 +15,7 @@
 }
 
 .container button{
-    padding: 5px 10px;
+    padding: 10px 20px;
     color:#223240;
     background-color: #60BF81;
     border: none;
@@ -23,7 +23,6 @@
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
-    margin-left: 1rem;
     font-weight: bold;
 
 }
@@ -35,10 +34,12 @@
 .container{
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
+
 }
 
 .big button {
-    padding: 20px 60px;
+    padding: 1rem 2rem;
     color:#223240;
     background-color: #60BF81;
     border: none;
@@ -47,7 +48,7 @@
     transition: all 0.3s ease 0s;
     font-family: 'Montserrat', sans-serif;
     margin-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
@@ -60,10 +61,28 @@
     justify-content: center;
 }
 
-/* @media (max-width: 600px) {
-    .pic, .container{
-        display:none;
+@media (min-width: 640px) {
+   
+    .big button {
+        padding: 20px 60px;
+        font-size: 1.5rem;
     }
 
+    .container{
+        margin-top: 0;
+    }
+
+    .container button{
+        padding: 5px 10px;
+        color:#223240;
+        background-color: #60BF81;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        font-family: 'Montserrat', sans-serif;
+        margin-left: 1rem;
+        font-weight: bold;
     
-} */
+    }
+}

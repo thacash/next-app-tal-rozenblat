@@ -82,7 +82,7 @@
 
 .notLoggedIn h3{
     margin-bottom: 4rem;
-    min-width: 515px;
+    /* min-width: 515px; */
     width: fit-content;
     align-self: center;
 }
@@ -96,5 +96,10 @@
         padding-left: 3rem;
         padding-top: 1rem;
         margin: 0 auto;
+    }
+
+    .notLoggedIn h3{
+        margin-bottom: 4rem;
+        min-width: 515px;
     }
 }

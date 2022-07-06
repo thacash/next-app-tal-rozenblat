@@ -3,20 +3,10 @@ import Image from 'next/image';
 import Layout from "../components/layout";
 import styles from "../styles/Documentation.module.css";
 import deleteIcon from '../public/images/delete.svg';
-import { getExamples } from '../lib/documentation.js';
-import { useEffect } from "react";
-
 import { server } from '../config/index.js'
 
-
-
-
-
 export async function getStaticProps() {
-    // const expensesData = await getExamples('expenses');
     const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
-
-
     return {
       props: {
         expensesData,
@@ -24,10 +14,6 @@ export async function getStaticProps() {
     };
   }
 export default function Documentation( { expensesData } ) {
-
-    useEffect(() => {
-        console.log(expensesData);
-    },[])
 
   return (
     <Layout>
