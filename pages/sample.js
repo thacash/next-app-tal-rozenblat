@@ -49,7 +49,7 @@ export default function Home() {
                 <div className={styles.articles}>
                     <article>
                         <h2 id="google-header">Google Chrome</h2>
-                        <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
+                        <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world&apos;s most popular web browser today!</p>
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a tortor semper, pretium dui vel, eleifend justo. Suspendisse vel nunc risus. Nulla facilisi. Donec id diam ullamcorper, eleifend erat quis, faucibus dolor. Donec arcu erat, facilisis ac congue sed, tempor eget nunc. Phasellus sit amet faucibus sem. Nullam eget massa a lorem ultrices elementum. Vestibulum venenatis metus lacus, eget dignissim mi euismod non.
 
                             Nam imperdiet fermentum ligula id consequat. In elit orci, suscipit in tempus nec, lacinia sit amet eros. Donec efficitur consequat risus, non tempor ante dictum sit amet. Morbi nec mauris in lorem porta tincidunt. Morbi ultrices eros a turpis eleifend aliquet. Nam rhoncus placerat justo sed imperdiet. Praesent ac ex posuere, dictum purus quis, efficitur nisi. Nullam blandit orci non ex tristique egestas nec eget mi. Nam orci felis, convallis ac semper eget, pulvinar eu sapien. Donec sed ultrices ipsum. Sed condimentum ante sed diam porttitor, eu imperdiet ipsum dictum.
