@@ -8,6 +8,7 @@
     overflow: auto;
     min-width: 250px;
     width:fit-content;
+    display:none;
 }
 
 .TOC ul {
@@ -25,4 +26,11 @@
 }
 .TOC li a:hover {
     opacity: 1;
+}
+
+
+@media (min-width: 1000px){
+    .TOC{
+        display: flex;
+    }
 }
