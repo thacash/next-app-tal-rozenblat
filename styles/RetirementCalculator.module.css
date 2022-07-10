@@ -93,3 +93,14 @@
     font-size: large;
 
 }
+
+.chart{
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px){
+    .chart{
+        width: 80%;
+    }
+}
