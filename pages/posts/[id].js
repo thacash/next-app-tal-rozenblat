@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { useState, useEffect } from 'react';
+import YoutubeIframe from '../../components/YoutubeIframe';
 
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
@@ -56,7 +57,27 @@ export async function getStaticPaths() {
 
     //end of test
 
+
+//second video test
+
+
 export default function Post({ postData }) {
+
+  const [iframeSrc, setIframeSrc] = useState([])
+
+  useEffect(() => {
+    const iframeElement = Array.from(document.querySelectorAll("h6"));
+    const iframeElementText = [];
+    iframeElement.forEach((item) => {
+      item.id = "iframe";
+      iframeElementText.push(item.innerText);
+      item.replaceWith('');
+
+    });
+
+    setIframeSrc(iframeElementText);
+  }, []);
+
     return (
       <Layout>
         <Head>
@@ -68,6 +89,18 @@ export default function Post({ postData }) {
             <Date dateString={postData.date} />
           </div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          {iframeSrc &&
+            iframeSrc.map((src) => (
+              <iframe
+                width="560"
+                height="315"
+                src={src}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            ))}
         </article>
       </Layout>
     );
