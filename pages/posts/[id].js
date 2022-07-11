@@ -90,15 +90,16 @@ export default function Post({ postData }) {
           </div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           {iframeSrc &&
-            iframeSrc.map((src) => (
+            iframeSrc.map((src,index) => (
               <iframe
+                key = {index}
                 width="560"
                 height="315"
                 src={src}
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             ))}
         </article>
