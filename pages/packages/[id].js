@@ -7,6 +7,8 @@ import styles from '../../styles/Package.module.css';
 import { useRouter } from "next/router";
 import talNpm from '@talrozen/tal-npm';
 import cashNpm from '@talrozen/cash-manage';
+import TableOfContents from '../../components/TableOfContents';
+import { useEffect, useState } from 'react';
 
 export async function getStaticProps({ params }) {
 
@@ -58,7 +60,40 @@ export async function getStaticPaths() {
   };
 }
 
+
+
 export default function Package({ postData, levels, pacakgeContents }) {
+
+  //TOC
+  const [nestedHeadings, setNestedHeadings] = useState([]);
+
+  useEffect(() => {
+    const headingElements = Array.from(
+      document.querySelectorAll("h2, h3")
+    );
+
+    const newNestedHeadings = getNestedHeadings(headingElements);
+    setNestedHeadings(newNestedHeadings);
+  }, []);
+
+  const getNestedHeadings = (headingElements) => {
+    const nestedHeadings = [];
+
+    headingElements.forEach((heading, index) => {
+      const { innerText: title, id } = heading;
+
+      if (heading.nodeName === "H2") {
+        nestedHeadings.push({ id, title, items: [] });
+      } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
+        nestedHeadings[nestedHeadings.length - 1].items.push({
+          id,
+          title,
+        });
+      }
+    });
+
+    return nestedHeadings;
+  };
   const router = useRouter();
 
 
@@ -67,36 +102,42 @@ export default function Package({ postData, levels, pacakgeContents }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
+      <div className={styles.main}>
+        <article className={styles.packages}>
+          <h1 className={styles.heading}>{postData.title}</h1>
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 
-      <article className={styles.packages}>
-        <h1 className={styles.heading}>{postData.title}</h1>
-        <div className ={styles.content} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className={utilStyles.lightText}>
+            <Date dateString={postData.date} />
+          </div>
 
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
+          {pacakgeContents.map((item, index) => {
+            return (
+              <div className={styles.package} key={item.name + index}>
+                <h2 id={item.name} className={styles.funcName}>Function Name: {item.name}</h2>
+                <div className={styles.funcLength}>Arguments: {item.length}</div>
+
+                {/* <code className={styles.funcBody}>{item.body}</code> */}
+                <textarea readOnly className={styles.funcBody}>{item.body}</textarea>
+
+              </div>
+            );
+          })}
+
+          {postData.title === 'tal-npm' &&
+            <div className={styles.package}>
+              <div className={styles.funcName}>Function Name: {talNpm.name}</div>
+              <div className={styles.funcLength}>Arguments: {talNpm.length}</div>
+              <textarea className={styles.funcBody}>{talNpm.toString()}</textarea>
+
+            </div>}
+        </article>
+
+        <div className={styles.toc}>
+          <TableOfContents nestedHeadings={nestedHeadings} />
         </div>
+      </div>
 
-        {pacakgeContents.map((item, index) => {
-          return (
-            <div className={styles.package} key={item.name + index}>
-              <div className={styles.funcName}>Function Name: {item.name}</div>
-              <div className={styles.funcLength}>Arguments: {item.length}</div>
-
-              {/* <code className={styles.funcBody}>{item.body}</code> */}
-              <textarea readOnly className={styles.funcBody}>{item.body}</textarea>
-
-            </div>
-          );
-        })}
-
-        {postData.title === 'tal-npm' &&
-          <div className={styles.package}>
-            <div className={styles.funcName}>Function Name: {talNpm.name}</div>
-            <div className={styles.funcLength}>Arguments: {talNpm.length}</div>
-            <textarea className={styles.funcBody}>{talNpm.toString()}</textarea>
-            
-          </div>}
-      </article>
 
     </Layout>
   );

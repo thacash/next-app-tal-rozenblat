@@ -1,4 +1,16 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+}
 
+.toc{
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    /* left: 10px; */
+}
 .packages{
     display: flex;
     flex-direction: column;
