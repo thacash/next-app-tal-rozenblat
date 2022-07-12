@@ -37,7 +37,6 @@ export default function Documentation( { expensesData } ) {
                         <th>Category</th>
                         <th>Amount</th>
                         <th>Date</th>
-
                     </tr>
 
                     {expensesData.map(({ category, amount, desc, _id, date }) => (

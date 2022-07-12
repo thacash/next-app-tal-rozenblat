@@ -37,12 +37,13 @@ const NavbarSlim = () => {
           <nav className = {styles.webNav}>
             
                     <ul className={styles.nav_links}>
-                        <li><Link href="/"> Home</Link></li>
+                        {/* <li><Link href="/"> Home</Link></li> */}
                         <li><Link href="/about"> About</Link></li>
                         <li><Link href="/fire"> Fire</Link></li>
-                        <li><Link href="/packages"> Packages</Link></li>
                         <li><Link href="/expenses"> Expenses</Link></li>
-                        <li><Link href="/documentation"> Documentation</Link></li>
+                        <li><Link href="/posts"> Posts</Link></li>
+                        {/* <li><Link href="/packages"> Packages</Link></li> */}
+                        {/* <li><Link href="/documentation"> Documentation</Link></li> */}
 
                         <li><LoginBtn /></li>
                     </ul>

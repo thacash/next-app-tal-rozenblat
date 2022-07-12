@@ -6,10 +6,11 @@
 }
 
 .toc{
-    position: absolute;
+    position: sticky;
     top: 5rem;
-    right: 2rem;
-    /* left: 10px; */
+    right: 0rem;
+    display: flex;
+    flex-direction: column;
 }
 .packages{
     display: flex;

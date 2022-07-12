@@ -5,63 +5,50 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { useState, useEffect } from 'react';
 import YoutubeIframe from '../../components/YoutubeIframe';
+// import TableOfContents from '../../components/TableOfContents';
+import styles from '../../styles/Package.module.css';
+import TableOfContents from '../../components/newTOC';
+import { useRouter } from 'next/router';
 
 export async function getStaticProps({ params }) {
-    const postData = await getPostData(params.id);
-    return {
-        props: {
-            postData,
-        },
-    };
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
 }
 
 export async function getStaticPaths() {
-    const paths = getAllPostIds();
-    return {
-        paths,
-        fallback: false,
-    };
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 
-// video test
-// const [nestedHeadings, setNestedHeadings] = useState([]);
-    
-//     useEffect(() => {
-//         const headingElements = Array.from(
-//             document.querySelectorAll("h2, h3")
-//         );
 
-//         const newNestedHeadings = getNestedHeadings(headingElements);
-//         setNestedHeadings(newNestedHeadings);
-//     }, []);
-
-//     const getNestedHeadings = (headingElements) => {
-//         const nestedHeadings = [];
-
-//         headingElements.forEach((heading, index) => {
-//             const { innerText: title, id } = heading;
-
-//             if (heading.nodeName === "H2") {
-//                 nestedHeadings.push({ id, title, items: [] });
-//             } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
-//                 nestedHeadings[nestedHeadings.length - 1].items.push({
-//                     id,
-//                     title,
-//                 });
-//             }
-//         });
-
-//         return nestedHeadings;
-//     };
-
-    //end of test
 
 
 //second video test
 
 
 export default function Post({ postData }) {
+
+  const router = useRouter();
+  const [tableOfContents, setTableOfContents] = useState([]);
+
+  useEffect(() => {
+    const headingElements = Array.from(document.querySelectorAll("h2"));
+    const headingElementsText = [];
+    headingElements.forEach((item) => {
+      item.id = item.innerText.replace(/ /g, "").replace(".", "");
+      headingElementsText.push(item.innerText);
+    });
+
+    setTableOfContents(headingElementsText);
+  }, [router.query.id]);
 
   const [iframeSrc, setIframeSrc] = useState([])
 
@@ -78,11 +65,46 @@ export default function Post({ postData }) {
     setIframeSrc(iframeElementText);
   }, []);
 
-    return (
-      <Layout>
-        <Head>
-          <title>{postData.title}</title>
-        </Head>
+
+  //toc 
+  // const [nestedHeadings, setNestedHeadings] = useState([]);
+
+  // useEffect(() => {
+  //   const headingElements = Array.from(
+  //     document.querySelectorAll("h2, h3")
+  //   );
+
+  //   const newNestedHeadings = getNestedHeadings(headingElements);
+  //   setNestedHeadings(newNestedHeadings);
+  // }, []);
+
+  // const getNestedHeadings = (headingElements) => {
+  //   const nestedHeadings = [];
+
+  //   headingElements.forEach((heading, index) => {
+  //     const { innerText: title, id } = heading;
+
+  //     if (heading.nodeName === "H2") {
+  //       nestedHeadings.push({ id, title, items: [] });
+  //     } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
+  //       nestedHeadings[nestedHeadings.length - 1].items.push({
+  //         id,
+  //         title,
+  //       });
+  //     }
+  //   });
+
+  //   return nestedHeadings;
+  // };
+  //
+
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <div className={styles.main}>
+
         <article>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <div className={utilStyles.lightText}>
@@ -90,9 +112,9 @@ export default function Post({ postData }) {
           </div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           {iframeSrc &&
-            iframeSrc.map((src,index) => (
+            iframeSrc.map((src, index) => (
               <iframe
-                key = {index}
+                key={index}
                 width="560"
                 height="315"
                 src={src}
@@ -103,6 +125,10 @@ export default function Post({ postData }) {
               ></iframe>
             ))}
         </article>
-      </Layout>
-    );
-  } 
+        <div className={styles.toc}>
+          <TableOfContents tableOfContents={tableOfContents} />
+        </div>
+      </div>
+    </Layout>
+  );
+} 
