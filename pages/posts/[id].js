@@ -5,7 +5,7 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { useState, useEffect } from 'react';
 import YoutubeIframe from '../../components/YoutubeIframe';
-// import TableOfContents from '../../components/TableOfContents';
+import VideoTableOfContents from '../../components/TableOfContents';
 import styles from '../../styles/Package.module.css';
 import TableOfContents from '../../components/newTOC';
 import { useRouter } from 'next/router';
@@ -48,55 +48,49 @@ export default function Post({ postData }) {
     });
 
     setTableOfContents(headingElementsText);
+
   }, [router.query.id]);
 
-  const [iframeSrc, setIframeSrc] = useState([])
+  // const [iframeSrc, setIframeSrc] = useState([]);
+  const [videoTitles, setVideoTitles] = useState([]);
 
   useEffect(() => {
     const iframeElement = Array.from(document.querySelectorAll("h6"));
+    const parent = document.getElementById('post-data');
     const iframeElementText = [];
+    const titlesArray = [];
+
     iframeElement.forEach((item) => {
-      item.id = "iframe";
-      iframeElementText.push(item.innerText);
-      item.replaceWith('');
+      // item.id = "iframe";
+
+      const newItem = document.createElement('div');
+      let newSrc = item.innerText.split(';');
+      const src = newSrc[0];
+
+      const newItemId = newSrc[1].replace(/ /g, "").replace(/[^a-zA-Z0-9 ]/g, "");
+      console.log(newItemId)
+
+      newItem.innerHTML = `<iframe
+      id=${newItemId}
+      key={index}
+      width="560"
+      height="315"
+      src=${src}
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>`;
+
+
+      titlesArray.push(newSrc[1]);
+      parent.replaceChild(newItem, item);
 
     });
-
-    setIframeSrc(iframeElementText);
+    
+    setVideoTitles(titlesArray);
   }, []);
 
-
-  //toc 
-  // const [nestedHeadings, setNestedHeadings] = useState([]);
-
-  // useEffect(() => {
-  //   const headingElements = Array.from(
-  //     document.querySelectorAll("h2, h3")
-  //   );
-
-  //   const newNestedHeadings = getNestedHeadings(headingElements);
-  //   setNestedHeadings(newNestedHeadings);
-  // }, []);
-
-  // const getNestedHeadings = (headingElements) => {
-  //   const nestedHeadings = [];
-
-  //   headingElements.forEach((heading, index) => {
-  //     const { innerText: title, id } = heading;
-
-  //     if (heading.nodeName === "H2") {
-  //       nestedHeadings.push({ id, title, items: [] });
-  //     } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
-  //       nestedHeadings[nestedHeadings.length - 1].items.push({
-  //         id,
-  //         title,
-  //       });
-  //     }
-  //   });
-
-  //   return nestedHeadings;
-  // };
-  //
 
   return (
     <Layout>
@@ -110,23 +104,12 @@ export default function Post({ postData }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-          {iframeSrc &&
-            iframeSrc.map((src, index) => (
-              <iframe
-                key={index}
-                width="560"
-                height="315"
-                src={src}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            ))}
+          <div id='post-data' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
         <div className={styles.toc}>
           <TableOfContents tableOfContents={tableOfContents} />
+          <VideoTableOfContents tableOfContents={videoTitles} />
+
         </div>
       </div>
     </Layout>

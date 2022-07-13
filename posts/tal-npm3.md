@@ -18,7 +18,7 @@ Duis iaculis ornare sem, vitae imperdiet dolor auctor non. Pellentesque habitant
 
  Praesent molestie velit sit amet elit molestie hendrerit. Curabitur ligula mauris, consectetur ut consectetur nec, auctor fringilla tortor. Morbi malesuada elementum orci, eget lacinia est pulvinar sit amet. Pellentesque aliquet ultrices viverra. Donec a convallis ipsum. Nulla scelerisque augue vel metus mattis tincidunt. Phasellus mollis felis egestas ante feugiat feugiat. Morbi sagittis id ligula eget pharetra. Sed ut metus quis metus accumsan pharetra nec vel ex. Cras sagittis eu mi ac imperdiet. Ut ac erat erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere congue nisi vitae lobortis. Pellentesque ut justo lorem.
 
-###### https://www.youtube.com/embed/dQw4w9WgXcQ ######
+###### https://www.youtube.com/embed/Sklc_fQBmcs;Next.js in 100 Seconds // Plus Full Beginner's Tutorial 
 
 ## Second headline
 
@@ -32,7 +32,7 @@ Duis iaculis ornare sem, vitae imperdiet dolor auctor non. Pellentesque habitant
 
  Praesent molestie velit sit amet elit molestie hendrerit. Curabitur ligula mauris, consectetur ut consectetur nec, auctor fringilla tortor. Morbi malesuada elementum orci, eget lacinia est pulvinar sit amet. Pellentesque aliquet ultrices viverra. Donec a convallis ipsum. Nulla scelerisque augue vel metus mattis tincidunt. Phasellus mollis felis egestas ante feugiat feugiat. Morbi sagittis id ligula eget pharetra. Sed ut metus quis metus accumsan pharetra nec vel ex. Cras sagittis eu mi ac imperdiet. Ut ac erat erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere congue nisi vitae lobortis. Pellentesque ut justo lorem.
 
-###### https://www.youtube.com/embed/dQw4w9WgXcQ ######
+###### https://www.youtube.com/embed/U3aXWizDbQ4;C in 100 Seconds
 
  ## Third headline
 
@@ -46,6 +46,6 @@ Duis iaculis ornare sem, vitae imperdiet dolor auctor non. Pellentesque habitant
 
  Praesent molestie velit sit amet elit molestie hendrerit. Curabitur ligula mauris, consectetur ut consectetur nec, auctor fringilla tortor. Morbi malesuada elementum orci, eget lacinia est pulvinar sit amet. Pellentesque aliquet ultrices viverra. Donec a convallis ipsum. Nulla scelerisque augue vel metus mattis tincidunt. Phasellus mollis felis egestas ante feugiat feugiat. Morbi sagittis id ligula eget pharetra. Sed ut metus quis metus accumsan pharetra nec vel ex. Cras sagittis eu mi ac imperdiet. Ut ac erat erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere congue nisi vitae lobortis. Pellentesque ut justo lorem.
 
-###### https://www.youtube.com/embed/dQw4w9WgXcQ ######
+###### https://www.youtube.com/embed/x7X9w_GIm1s;Python in 100 Seconds
 
 

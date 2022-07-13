@@ -7,7 +7,7 @@ import styles from '../../styles/Package.module.css';
 import { useRouter } from "next/router";
 import talNpm from '@talrozen/tal-npm';
 import cashNpm from '@talrozen/cash-manage';
-import TableOfContents from '../../components/TableOfContents';
+import TableOfContents from '../../components/newTOC';
 import { useEffect, useState } from 'react';
 
 export async function getStaticProps({ params }) {
@@ -136,7 +136,7 @@ export default function Package({ postData, levels, pacakgeContents }) {
         </article>
 
         <div className={styles.toc}>
-          <TableOfContents nestedHeadings={nestedHeadings} />
+          {/* <TableOfContents nestedHeadings={nestedHeadings} /> */}
         </div>
       </div>
 
