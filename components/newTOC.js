@@ -10,8 +10,8 @@ const TableOfContents = (props) => {
       {tableOfContents &&
         tableOfContents.map((item) => {
           return (
-            <li>
-            <a href={"#" + item.replace(/ /g, "").replace(".", "")} key={item} onClick={(e) => {
+            <li key = {item}>
+            <a href={"#" + item.replace(/ /g, "").replace(".", "")} onClick={(e) => {
               e.preventDefault();
               document.querySelector(`#${item.replace(/ /g, "").replace(".", "")}`).scrollIntoView({
                 behavior: "smooth"

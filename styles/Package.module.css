@@ -5,6 +5,7 @@
     margin: 0 auto;
 }
 
+
 .toc{
     position: sticky;
     top: 5rem;
@@ -92,6 +93,10 @@
 
 .funcBody:hover{
     border-left-color: #60BF81;
+}
+
+.postData > *{
+    scroll-margin-top: 1rem;
 }
 
 @media (min-width: 640px){

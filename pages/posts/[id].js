@@ -104,7 +104,7 @@ export default function Post({ postData }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
-          <div id='post-data' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className = {styles.postData} id='post-data' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
         <div className={styles.toc}>
           <TableOfContents tableOfContents={tableOfContents} />

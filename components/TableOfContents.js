@@ -10,8 +10,8 @@ const VideoTableOfContents = (props) => {
       {tableOfContents &&
         tableOfContents.map((item) => {
           return (
-            <li>
-            <a href={"#" + item.replace(/ /g, "").replace(/[^a-zA-Z0-9 ]/g, "")} key={item} onClick={(e) => {
+            <li key = {item}>
+            <a href={"#" + item.replace(/ /g, "").replace(/[^a-zA-Z0-9 ]/g, "")} onClick={(e) => {
               e.preventDefault();
               document.querySelector(`#${item.replace(/ /g, "").replace(/[^a-zA-Z0-9 ]/g, "")}`).scrollIntoView({
                 behavior: "smooth"
