@@ -13,8 +13,7 @@ import { useRouter } from 'next/router';
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
   const paths = getAllPostIds();
-
-  // console.log(paths[0].params.id)
+  postData.title = postData.title.replace(/-/g, ' ');
   const pathsArray = paths.map(path => path.params.id);
 
   return {
@@ -112,10 +111,6 @@ export default function Post({ postData, pathsArray }) {
     router.push(`/posts/${pathsArray[index]}`);
   }
 
-  const handlePageChange = (page) => {
-    router.push(`/posts/${pathsArray[page]}`);
-  }
-
   return (
     <Layout>
       <Head>
@@ -137,7 +132,7 @@ export default function Post({ postData, pathsArray }) {
           <div className={styles.pageNumbers}>
             {pathsArray.map((page, index) => {
               return (
-                <button key = {index} className={styles.pageNumber} disabled={router.query.id === pathsArray[index]} onClick={() => {router.push(`/posts/${pathsArray[index]}`)}}>{index}</button>
+                <button key = {index} className={styles.pageNumber} disabled={router.query.id === pathsArray[index]} onClick={() => {router.push(`/posts/${pathsArray[index]}`)}}>{index + 1}</button>
               )
             })}
           </div>
