@@ -77,7 +77,6 @@ const RetirementCalculator = (props) => {
 
     let year = current.getFullYear() + 1;
     let amount = 0;
-    console.log(fire)
     fire.currentNetWorth ? (amount += parseInt(fire.currentNetWorth)) : null;
     let interest = 0;
     let i = 0;

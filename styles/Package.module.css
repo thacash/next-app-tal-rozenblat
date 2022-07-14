@@ -99,6 +99,55 @@
     scroll-margin-top: 1rem;
 }
 
+.btns{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.navBtns{
+    padding: 10px 20px;
+    color:#223240;
+    background-color: #60BF81;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 0 0.5rem;
+}
+
+.navBtns:hover, .pageNumber:hover{
+    background-color: #3B8C66;
+}
+
+.navBtns:disabled, .pageNumber:disabled{
+    filter: grayscale(1);
+    cursor:default;
+}
+
+.pageNumbers{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+.pageNumber{
+    padding: 10px 16px;
+    color:#223240;
+    background-color: #60BF81;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 0 0.5rem;
+}
+
 @media (min-width: 640px){
     .funcBody{
         min-width: 400px;

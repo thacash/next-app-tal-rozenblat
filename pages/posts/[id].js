@@ -12,9 +12,15 @@ import { useRouter } from 'next/router';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
+  const paths = getAllPostIds();
+
+  // console.log(paths[0].params.id)
+  const pathsArray = paths.map(path => path.params.id);
+
   return {
     props: {
       postData,
+      pathsArray,
     },
   };
 }
@@ -34,10 +40,15 @@ export async function getStaticPaths() {
 //second video test
 
 
-export default function Post({ postData }) {
-
+export default function Post({ postData, pathsArray }) {
   const router = useRouter();
   const [tableOfContents, setTableOfContents] = useState([]);
+
+
+  //pages useEffect
+  useEffect(() => {
+
+  })
 
   useEffect(() => {
     const headingElements = Array.from(document.querySelectorAll("h2"));
@@ -68,7 +79,6 @@ export default function Post({ postData }) {
       const src = newSrc[0];
 
       const newItemId = newSrc[1].replace(/ /g, "").replace(/[^a-zA-Z0-9 ]/g, "");
-      console.log(newItemId)
 
       newItem.innerHTML = `<iframe
       id=${newItemId}
@@ -87,10 +97,24 @@ export default function Post({ postData }) {
       parent.replaceChild(newItem, item);
 
     });
-    
+    console.log(router.query.id)
     setVideoTitles(titlesArray);
   }, []);
 
+
+  const handlePrev = () => {
+    const index = pathsArray.indexOf(router.query.id) - 1;
+    router.push(`/posts/${pathsArray[index]}`);
+  }
+
+  const handleNext = () => {
+    const index = pathsArray.indexOf(router.query.id) + 1;
+    router.push(`/posts/${pathsArray[index]}`);
+  }
+
+  const handlePageChange = (page) => {
+    router.push(`/posts/${pathsArray[page]}`);
+  }
 
   return (
     <Layout>
@@ -104,7 +128,19 @@ export default function Post({ postData }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
-          <div className = {styles.postData} id='post-data' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className={styles.postData} id='post-data' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className={styles.btns}>
+            <button className={styles.navBtns} disabled={router.query.id === pathsArray[0]} onClick={handlePrev}>Previous</button>
+            <button className={styles.navBtns} disabled={router.query.id === pathsArray[pathsArray.length - 1]} onClick={handleNext}>Next</button>
+          </div>
+
+          <div className={styles.pageNumbers}>
+            {pathsArray.map((page, index) => {
+              return (
+                <button className={styles.pageNumber} disabled={router.query.id === pathsArray[index]} onClick={() => {router.push(`/posts/${pathsArray[index]}`)}}>{index}</button>
+              )
+            })}
+          </div>
         </article>
         <div className={styles.toc}>
           <TableOfContents tableOfContents={tableOfContents} />
