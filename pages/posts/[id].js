@@ -137,7 +137,7 @@ export default function Post({ postData, pathsArray }) {
           <div className={styles.pageNumbers}>
             {pathsArray.map((page, index) => {
               return (
-                <button className={styles.pageNumber} disabled={router.query.id === pathsArray[index]} onClick={() => {router.push(`/posts/${pathsArray[index]}`)}}>{index}</button>
+                <button key = {index} className={styles.pageNumber} disabled={router.query.id === pathsArray[index]} onClick={() => {router.push(`/posts/${pathsArray[index]}`)}}>{index}</button>
               )
             })}
           </div>
