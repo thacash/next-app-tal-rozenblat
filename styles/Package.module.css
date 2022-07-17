@@ -13,20 +13,13 @@
 
 .toc{
     position: sticky;
-    /* top: 5rem;
-    right: 0rem; */
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
-    /* background: rgba(96, 191, 129, 0.3); */
-    
-    /* border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px; */
+    background: rgba(96, 191, 129, 0.3);
     margin-left: 16px;
     padding: 0;
-
-    /* backdrop-filter: brightness(105%); */
-
+    backdrop-filter: brightness(105%);
 }
 .packages{
     display: flex;
@@ -174,5 +167,11 @@
     .funcBody{
         min-width: 650px;
 
+    }
+}
+
+@media (min-width: 1000px) {
+    .toc{
+        display: flex;
     }
 }

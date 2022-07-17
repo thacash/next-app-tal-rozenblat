@@ -42,7 +42,7 @@ export default function Footer() {
           <Link href="/packages"> Packages</Link>
         </li>
         <li>
-          <Link href="/expenses"> Expenses</Link>
+          <Link href="/documentation"> Documentation</Link>
         </li>
 
         {/* <LoginBtn /> */}

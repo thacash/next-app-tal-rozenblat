@@ -1,35 +1,17 @@
 .TOC{
-    position: sticky;
-    position: -webkit-sticky; /* For Safari */
-    top: 24px; /* How far down the page you want your ToC to live */
-  
-    /* Give table of contents a scrollbar */
+    top: 24px; 
     max-height: calc(100vh - 40px);
     overflow: auto;
     min-width: 250px;
     width:fit-content;
     display:none;
-    /* margin-left: 2rem; */
-    /* margin-top: 4rem; */
     padding-right: 10px;
-
-
-    /* */
     position: sticky;
-    top: 5rem;
     right: 0rem;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rgba(96, 191, 129, 0.3);
-    
-    /* border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px; */
-    /* margin-left: 16px; */
     padding: 0;
-
-    backdrop-filter: brightness(105%);
-
+    height: calc(50vh - 20px);
 }
 
 .TOC h3{
@@ -58,34 +40,20 @@
 
 
 .videoTOC{
-    position: sticky;
-    position: -webkit-sticky; /* For Safari */
     bottom: 1rem; 
-  
-    
     max-height: calc(100vh - 40px);
     overflow: auto;
     min-width: 250px;
     width:fit-content;
     display:none;
-    /* margin-left: 2rem; */
     padding-right: 10px;
-
-    /* */
     position: sticky;
-    top: 5rem;
     right: 0rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rgba(96, 191, 129, 0.3);
-    
-    /* border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px; */
-    /* margin-left: 16px; */
     padding: 0;
-
-    backdrop-filter: brightness(105%);
+    height: calc(50vh - 20px);
 }
 
 .videoTOC h3{
@@ -124,6 +92,7 @@
     .videoTOC{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+
     }
 }

@@ -5,7 +5,7 @@ import styles from "../styles/Fire.module.css";
 import { useEffect } from "react";
 
 import { server } from '../config/index.js'
-import RetirementCalculator from "../components/RetirementCalculator";
+import RetirementCalculator from "../components/RetirementCalculatorNew";
 
 
 

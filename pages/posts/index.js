@@ -22,11 +22,11 @@ export default function Packages({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <title>Packages</title>
+        <title>Posts</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <div className={styles.listContainer}>
-          <h2 className={utilStyles.headingLg}>Packages</h2>
+          <h2 className={utilStyles.headingLg}>Posts</h2>
 
           <ul className={styles.list}>
             {allPostsData.map(({ id, date, title }) => (

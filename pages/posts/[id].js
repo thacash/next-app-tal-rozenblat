@@ -98,7 +98,7 @@ export default function Post({ postData, pathsArray }) {
     });
     console.log(router.query.id)
     setVideoTitles(titlesArray);
-  }, []);
+  }, [router.query.id]);
 
 
   const handlePrev = () => {
