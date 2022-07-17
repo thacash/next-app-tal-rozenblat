@@ -6,7 +6,7 @@ import deleteIcon from '../public/images/delete.svg';
 import { server } from '../config/index.js'
 
 export async function getStaticProps() {
-    const expensesData = await fetch(`${server}/api/mongo/documentation`).then(response => response.json());
+    const expensesData = await fetch(`${server}/api/mongo/documentation/expenses`).then(response => response.json());
     return {
       props: {
         expensesData,
