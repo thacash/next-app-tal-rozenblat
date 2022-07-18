@@ -29,11 +29,38 @@ const RetirementCalculator = (props) => {
       }
     ]
   })
+
+  const [retirementChartData, setRetirementChartData] = useState([
+    { year: 2022, amount: 1000 },
+    { year: 2023, amount: 1100 },
+    { year: 2024, amount: 1200 },
+    { year: 2025, amount: 1300 },
+    { year: 2026, amount: 1400 }
+  ]);
+  
+
+  const [retirementChart, setRetirementChart] = useState({
+    labels: retirementChartData.map((year) => year.year),
+    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
+    datasets: [
+      {
+        label: 'Portfolio and Savings during retirement',
+        data: retirementChartData.map((year) => year.amount),
+        fill: true,
+        backgroundColor: "#ffbb11",
+        color: "#3B8C66",
+        borderColor: "#3B8C66",
+        borderWidth: 1,
+      }
+    ]
+  })
   const [fireResults, setFireResults] = useState({});
 
   useEffect(() => {
     const res = fireNumber(formInputs);
     setFireResults(res);
+    setRetirementChartData(chartData);
+    retirementData(res);
     setChartData(res.chartData);
   }, [])
 
@@ -64,8 +91,25 @@ const RetirementCalculator = (props) => {
         }
       ]
     }
+
+    const newRetirementChart = {
+      labels: retirementChartData.map((year) => year.year),
+      // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
+      datasets: [
+        {
+          label: 'Retirement funds',
+          data: retirementChartData.map((year) => year.amount),
+          fill: true,
+          backgroundColor: "#FAC2E4",
+          color: "#3B8C66",
+          borderColor: "black",
+          borderWidth: 1,
+        }
+      ]
+    }
     setChart(newData)
-  }, [chartData])
+    setRetirementChart(newRetirementChart)
+  }, [chartData, retirementChartData])
 
   const [formInputs, setFormInputs] = useState({
     age: 25,
@@ -83,6 +127,9 @@ const RetirementCalculator = (props) => {
       monthlySavings: fire.monthlyIncome - fire.monthlyExpenses,
       yearsNeeded: Math.floor(fire.monthlyExpenses * 12 * 25 / ((fire.monthlyIncome - fire.monthlyExpenses) * 12)),
       ageToRetire: Math.floor(parseInt(fire.age) + parseInt(fire.monthlyExpenses * 12 * 25 / ((fire.monthlyIncome - fire.monthlyExpenses) * 12))),
+      monthlyExpenses: fire.monthlyExpenses,
+      age: fire.age,
+      interestRate: fire.interestRate,
     }
 
     let year = current.getFullYear() + 1;
@@ -118,17 +165,33 @@ const RetirementCalculator = (props) => {
     return fireRes;
   }
 
+ 
+  const retirementData = (fireRes) => {
+ 
+    const current = new Date();
 
-  //trying to get accurate year of retirement with compund interest on principal + monthly savings 
-  const compoundInterestCalc = (obj) => {
-    let years = 0;
-    const yearly = obj.yearlySavings;
-    let base = obj.principal;
-    while (obj.fire - base > 0) {
-      base = (base * obj.interestRate) + (yearly * obj.interestRate);
-      years++;
+    let amount = fireRes.fireAmount;
+    let i = 0;
+    let age = fireRes.ageToRetire;
+    let year = current.getFullYear() + (fireRes.ageToRetire - fireRes.age);
+
+    let chartData = [];
+
+    while (amount > 0 && age <= 120) {
+      chartData[i] = {
+        year: year,
+        amount: amount,
+      };
+      i++;
+      year++;
+      age++;
+      amount -= (fireRes.monthlyExpenses * 12);
+      amount += amount * (fireRes.interestRate / 100);
     }
-    return years;
+
+    setRetirementChartData(chartData);
+    console.log(chartData);
+    return chartData;
   }
 
   const handleInputeChange = (e) => {
@@ -160,34 +223,9 @@ const RetirementCalculator = (props) => {
         }
       ]
     }
+    retirementData(res);
     setChart(newData)
   }
-
-  //chart 
-
-  const data = [
-    { year: 2022, amount: 1000 },
-    { year: 2023, amount: 1100 },
-    { year: 2024, amount: 1200 },
-    { year: 2025, amount: 1300 },
-    { year: 2026, amount: 1400 }
-  ]
-  const chartsSample = {
-    labels: chartData.map((year) => year.year),
-    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
-    datasets: [
-      {
-        label: 'Portfolio of Savings and Return-on-Investment',
-        data: chartData.map((year) => year.amount),
-        fill: true,
-        backgroundColor: "#ffbb11",
-        color: "#3B8C66",
-        borderColor: "#3B8C66",
-        borderWidth: 1,
-      }
-    ]
-  }
-  // chart end
 
   const placeHolders = {
     age: 'Age',
@@ -248,6 +286,7 @@ const RetirementCalculator = (props) => {
       <div className={styles.chart}>
 
         <LineChart chartData={chart} />
+        <LineChart chartData={retirementChart} />
       </div>
     </div>
   )

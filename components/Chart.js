@@ -1,12 +1,13 @@
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
-export const LineChart = ( { chartData }) => {
+export const LineChart = ({ chartData }) => {
     return (
         <div>
             <Line
-                data = {chartData}
-                options = {{
+                data={chartData}
+                options={
+                    {
                     responsive: true,
                     plugins: {
                         title: {
@@ -15,10 +16,23 @@ export const LineChart = ( { chartData }) => {
                         },
                         legend: {
                             display: true,
-                            position: "bottom"
+                            position: "bottom",
+                            labels: {
+                                color: "black"
+                            },
+                            scales: {
+                                y: {
+                                    ticks: {
+                                        color: 'black',
+                                    }
+                                }
+                            }
+                            
                         }
                     },
-                }}
+
+                }
+                }
             />
         </div>
     );
