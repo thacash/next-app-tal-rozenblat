@@ -72,6 +72,7 @@ const RetirementCalculator = (props) => {
     monthlyIncome: 12000,
     monthlyExpenses: 7000,
     currentNetWorth: 0,
+    interestRate: 4,
   });
 
   const fireNumber = (fire) => {
@@ -101,7 +102,7 @@ const RetirementCalculator = (props) => {
       };
       i++;
       year++;
-      interest = amount * 0.04;
+      interest = amount * (fire.interestRate / 100);
       amountWithoutInterest += (fireRes.monthlySavings * 12);
       amount += (fireRes.monthlySavings * 12) + interest;
       totalInterest += interest;
@@ -112,7 +113,7 @@ const RetirementCalculator = (props) => {
     fireRes.chartData = chartData;
     fireRes.yearsNeeded = i;
     fireRes.ageToRetire = Math.floor(parseInt(fire.age) + i);
-    
+
 
     return fireRes;
   }
@@ -196,7 +197,7 @@ const RetirementCalculator = (props) => {
 
   }
   const checkIfEmpty = (e) => {
-    if(e.target.value){
+    if (e.target.value) {
       e.target.type = 'number';
     }
     else {
@@ -221,16 +222,20 @@ const RetirementCalculator = (props) => {
               <label>Monthly Income</label>
               <input placeholder='Income' type='number' onBlur={checkIfEmpty} name='monthlyIncome' onChange={handleInputeChange} />
             </div>
-          <div className={styles.inputDiv}>
+            <div className={styles.inputDiv}>
               <label>Monthly Expenses</label>
-              <input placeholder='Expenses' type='number' onBlur={checkIfEmpty}name='monthlyExpenses' onChange={handleInputeChange} />
+              <input placeholder='Expenses' type='number' onBlur={checkIfEmpty} name='monthlyExpenses' onChange={handleInputeChange} />
             </div>
             <div className={styles.inputDiv}>
               <label>Current Savings</label>
-              <input placeholder='Savings' type='number' onBlur={checkIfEmpty}name='currentNetWorth' onChange={handleInputeChange} />
+              <input placeholder='Savings' type='number' onBlur={checkIfEmpty} name='currentNetWorth' onChange={handleInputeChange} />
             </div>
+            <div className={styles.inputDiv}>
+              <label>Interest Rate</label>
+              <input placeholder='Interest' type='number' onBlur={checkIfEmpty} name='interestRate' onChange={handleInputeChange} />
             </div>
-       
+          </div>
+
           <button onClick={handleSubmit}>
             Calculate
           </button>
