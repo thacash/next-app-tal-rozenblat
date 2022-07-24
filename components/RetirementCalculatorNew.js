@@ -117,6 +117,7 @@ const RetirementCalculator = (props) => {
     monthlyExpenses: 7000,
     currentNetWorth: 0,
     interestRate: 4,
+    retirementExpenses: 0
   });
 
   const fireNumber = (fire) => {
@@ -130,6 +131,7 @@ const RetirementCalculator = (props) => {
       monthlyExpenses: fire.monthlyExpenses,
       age: fire.age,
       interestRate: fire.interestRate,
+      retirementExpenses: fire.retirementExpenses,
     }
 
     let year = current.getFullYear() + 1;
@@ -174,7 +176,7 @@ const RetirementCalculator = (props) => {
     let i = 0;
     let age = fireRes.ageToRetire;
     let year = current.getFullYear() + (fireRes.ageToRetire - fireRes.age);
-
+    let expenses = fireRes.retirementExpenses > 0 ? fireRes.retirementExpenses : fireRes.monthlyExpenses;
     let chartData = [];
 
     while (amount > 0 && age <= 120) {
@@ -185,7 +187,7 @@ const RetirementCalculator = (props) => {
       i++;
       year++;
       age++;
-      amount -= (fireRes.monthlyExpenses * 12);
+      amount -= (expenses * 12);
       amount += amount * (fireRes.interestRate / 100);
     }
 
@@ -272,6 +274,10 @@ const RetirementCalculator = (props) => {
               <label>Interest Rate</label>
               <input placeholder='Interest' type='number' onBlur={checkIfEmpty} name='interestRate' onChange={handleInputeChange} />
             </div>
+            <div className={styles.inputDiv}>
+              <label>Retirement Expenses</label>
+              <input placeholder='Expenses' type='number' onBlur={checkIfEmpty} name='retirementExpenses' onChange={handleInputeChange} />
+            </div>
           </div>
 
           <button onClick={handleSubmit}>
@@ -287,6 +293,7 @@ const RetirementCalculator = (props) => {
 
         <LineChart chartData={chart} />
         <LineChart chartData={retirementChart} />
+       
       </div>
     </div>
   )
