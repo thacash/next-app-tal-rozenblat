@@ -14,6 +14,7 @@
     justify-content: space-between;
 }
 
+
 .navigationNames a,
 .navigationNames span {
     display: none;
@@ -22,6 +23,8 @@
 .btn {
     border: none;
     background: none;
+    cursor: pointer;
+
 }
 
 .mobileMenu,

@@ -13,11 +13,11 @@ const Signin = ({ csrfToken, providers }) => {
           {/* <Image src='/katalog_full.svg' width="196px" height="64px" alt='App Logo' style={{ height: '85px', marginBottom: '20px' }} /> */}
           <div className={styles.cardContent}>
             <input name='csrfToken' type='hidden' defaultValue={csrfToken} />
-            <input placeholder='Email (Not Setup - Please Use Github)' size='large' />
+            {/* <input placeholder='Email (Not Setup - Please Use Github)' size='large' />
             <button className={styles.primaryBtn}>
               Submit
             </button>
-            <hr />
+            <hr /> */}
             {providers &&
               Object.values(providers).map(provider => (
                 <div key={provider.name} style={{ marginBottom: 0 }}>

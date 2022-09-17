@@ -360,7 +360,7 @@ const RetirementCalculator = (props) => {
                 onChange={handleInputeChange}
               />
             </div>
-            <div className={styles.inputDiv}>
+            {/* <div className={styles.inputDiv}>
               <label>Retirement Expenses</label>
               <input
                 placeholder="Expenses"
@@ -379,7 +379,7 @@ const RetirementCalculator = (props) => {
                 name="taxPoints"
                 onChange={handleInputeChange}
               />
-            </div>
+            </div> */}
           </div>
 
           <button onClick={handleSubmit}>Calculate</button>
@@ -394,13 +394,13 @@ const RetirementCalculator = (props) => {
           {Math.floor(fireResults.totalInterest)} of which earned by interest.
         </p>
 
-        <p className={styles.text}>
+        {/* <p className={styles.text}>
           Your tax per month is ${Math.floor(taxes)}, meaning after tax income is {fireResults.monthlyIncome - taxes}
-        </p>
+        </p> */}
       </section>
       <div className={styles.chart}>
         <LineChart chartData={chart} />
-        <LineChart chartData={retirementChart} />
+        {/* <LineChart chartData={retirementChart} /> */}
       </div>
     </div>
   );

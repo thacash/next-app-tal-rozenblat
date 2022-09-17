@@ -82,6 +82,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: left;
+    /* flex-wrap: wrap; */
 }
 
 .result{
@@ -114,5 +115,20 @@
 @media (min-width: 640px){
     .chart{
         width: 80%;
+    }
+    
+    
+}
+@media (max-width: 640px){
+    .row{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .row label {
+        padding-top: 5px;
+        margin-top: 10px;
+    }
+    .row input {
+        margin-top: 3px;
     }
 }
