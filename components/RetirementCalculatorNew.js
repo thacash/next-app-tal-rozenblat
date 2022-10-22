@@ -5,6 +5,7 @@ import { LineChart } from "../components/Chart";
 import styles from "../styles/RetirementCalculatorNew.module.css";
 
 const RetirementCalculator = (props) => {
+  const TAX_POINT_WORTH = 223; 
   const taxBrackets = [
     {
       maxAmount: 6450,
@@ -32,14 +33,31 @@ const RetirementCalculator = (props) => {
     },
   ];
 
-  const calculateTaxes = (income) => {
-    const res = 0;
+  const [taxes, setTaxes] = useState(0);
+
+  const calculateTaxes = (income, points) => {
+    let res = 0;
     let i = 0;
-    for (i = taxBrackets.length; i > 0; i++){
-      if (income < taxBrackets[i].maxAmount){
+    let amount = income;
+    let totalTax = 0;
+    for (i = taxBrackets.length - 1; i >= 0; i--){
+      
+      if (income >= taxBrackets[i].maxAmount){
+        totalTax += (amount - taxBrackets[i].maxAmount) * (taxBrackets[i + 1].tax / 100);
+        amount = taxBrackets[i].maxAmount;
       }
+      
     }
 
+    //discount given by the goverment according to parameters 
+    console.log('totalTax', totalTax)
+
+    totalTax = totalTax - (points * TAX_POINT_WORTH);
+    console.log('totalTax after points', totalTax)
+
+    res = income - totalTax;
+    console.log('income after taxes:', res);
+    setTaxes(totalTax);
     return res;
   };
 
@@ -152,6 +170,7 @@ const RetirementCalculator = (props) => {
     currentNetWorth: 0,
     interestRate: 4,
     retirementExpenses: 0,
+    taxPoints: 2.25,
   });
 
   const fireNumber = (fire) => {
@@ -234,7 +253,6 @@ const RetirementCalculator = (props) => {
     }
 
     setRetirementChartData(chartData);
-    console.log(chartData);
     return chartData;
   };
 
@@ -247,7 +265,6 @@ const RetirementCalculator = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // setFireResults(fireNumber(formInputs));
     const res = fireNumber(formInputs);
     setFireResults(fireNumber(formInputs));
@@ -267,6 +284,7 @@ const RetirementCalculator = (props) => {
         },
       ],
     };
+    calculateTaxes(formInputs.monthlyIncome, formInputs.taxPoints);
     retirementData(res);
     setChart(newData);
   };
@@ -342,7 +360,7 @@ const RetirementCalculator = (props) => {
                 onChange={handleInputeChange}
               />
             </div>
-            <div className={styles.inputDiv}>
+            {/* <div className={styles.inputDiv}>
               <label>Retirement Expenses</label>
               <input
                 placeholder="Expenses"
@@ -352,6 +370,16 @@ const RetirementCalculator = (props) => {
                 onChange={handleInputeChange}
               />
             </div>
+            <div className={styles.inputDiv}>
+              <label>Tax Points</label>
+              <input
+                placeholder="Points"
+                type="number"
+                onBlur={checkIfEmpty}
+                name="taxPoints"
+                onChange={handleInputeChange}
+              />
+            </div> */}
           </div>
 
           <button onClick={handleSubmit}>Calculate</button>
@@ -365,10 +393,14 @@ const RetirementCalculator = (props) => {
           With ${fireResults.fireAmount} total, $
           {Math.floor(fireResults.totalInterest)} of which earned by interest.
         </p>
+
+        {/* <p className={styles.text}>
+          Your tax per month is ${Math.floor(taxes)}, meaning after tax income is {fireResults.monthlyIncome - taxes}
+        </p> */}
       </section>
       <div className={styles.chart}>
         <LineChart chartData={chart} />
-        <LineChart chartData={retirementChart} />
+        {/* <LineChart chartData={retirementChart} /> */}
       </div>
     </div>
   );
