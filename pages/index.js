@@ -19,7 +19,9 @@ export default function Home() {
           body="Learn more about Cash Manage"
           route='/about'
         />
-        <HomepageInfoCard title="Packages" body="NPM packages I created" route='/packages' />
+        {/* <HomepageInfoCard title="Packages" body="NPM packages I created" route='/packages' /> */}
+        <HomepageInfoCard title="Fire Calculator" body="A tool for calculating your way to financial freedom" route='/fire' />
+
         <HomepageInfoCard title="Expenses" body="Manage your expenses" route='/expenses' />
       </div>
     </Layout>

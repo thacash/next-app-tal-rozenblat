@@ -4,15 +4,13 @@ import styles from "../styles/HomepageHeaderCard.module.css";
 export default function HomepageHeaderCard() {
   return (
     <div className={styles.card}>
-      <h1 className={styles.h1}>Managing expenses, at the touch of a button</h1>
+      <h1 className={styles.h1}>Pave you way to financial freedom</h1>
       <p className={styles.p}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor
-        gravida tempus. Nullam suscipit laoreet risus, non euismod elit laoreet
-        eu.
+        Here in Cash Manage, we have the tools you need to have a clear view on your finances, and how you could achieve financial freedom sooner.
       </p>
-      <div className={styles.links}>
+      {/* <div className={styles.links}>
         <Link href="/about">LEARN MORE</Link>
-      </div>
+      </div> */}
     </div>
   );
 }

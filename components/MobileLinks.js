@@ -23,8 +23,8 @@ const MobileLinks = ({ open }) => {
         <Link href="/expenses" activeClassName="active">
           Expenses
         </Link>
-        <Link href="/documentation" activeClassName="active">
-          Documentation
+        <Link href="/howtouse" activeClassName="active">
+          How to use
         </Link>
       {/* </div> */}
       <LoginBtn />
