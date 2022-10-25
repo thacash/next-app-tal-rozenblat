@@ -135,6 +135,18 @@
     cursor: pointer;
 }
 
+.open {
+    /* rotate: 270deg; */
+    transform: rotate(-90deg);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.close {
+    transform: rotate(0deg);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
 .addOptionBtn span {
     align-self: center;
 }

@@ -17,15 +17,17 @@ const MobileLinks = ({ open }) => {
         <Link href="/fire" activeClassName="active">
           Fire
         </Link>
-        <Link href="/packages" activeClassName="active">
-          Packages
-        </Link>
         <Link href="/expenses" activeClassName="active">
           Expenses
         </Link>
         <Link href="/howtouse" activeClassName="active">
           How to use
         </Link>
+        <Link href="/packages" activeClassName="active">
+          Packages
+        </Link>
+        
+        
       {/* </div> */}
       <LoginBtn />
     </nav>

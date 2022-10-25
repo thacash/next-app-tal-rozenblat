@@ -139,11 +139,11 @@ export default function AddCategoryModal(props) {
           })}
         </select>
         <button
-          className={styles.addOptionBtn}
-          onClick={handleAddCategoryFieldOpen}
+          className={`${styles.addOptionBtn} ${addCategoryField ? styles.open : styles.close}` }
+          onClick={() => setAddCategoryField(!addCategoryField)}
         >
           <Image
-            src={addCategoryField ? doubleDownIcon : doubleLeftIcon}
+            src={doubleLeftIcon}
             width={30}
             height={30}
             alt=""
